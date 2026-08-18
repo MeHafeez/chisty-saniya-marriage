@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="The Nikah">
+  <defs>
+    <linearGradient id="bg-800x1000-2" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0%" stop-color="#F2E7D2"/>
+      <stop offset="100%" stop-color="#C8AC7C"/>
+    </linearGradient>
+    <radialGradient id="glow-800x1000-2" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FDF9F5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FDF9F5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig-800x1000-2" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="55%" stop-color="#463421" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#463421" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg-800x1000-2)"/>
+  <rect width="800" height="1000" fill="url(#glow-800x1000-2)"/>
+
+  
+    <path d="M0 -104L19.9 -48.04L73.54 -73.54L48.04 -19.9L104 0L48.04 19.9L73.54 73.54L19.9 48.04L0 104L-19.9 48.04L-73.54 73.54L-48.04 19.9L-104 0L-48.04 -19.9L-73.54 -73.54L-19.9 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 -104L819.9 -48.04L873.54 -73.54L848.04 -19.9L904 0L848.04 19.9L873.54 73.54L819.9 48.04L800 104L780.1 48.04L726.46 73.54L751.96 19.9L696 0L751.96 -19.9L726.46 -73.54L780.1 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M0 896L19.9 951.96L73.54 926.46L48.04 980.1L104 1000L48.04 1019.9L73.54 1073.54L19.9 1048.04L0 1104L-19.9 1048.04L-73.54 1073.54L-48.04 1019.9L-104 1000L-48.04 980.1L-73.54 926.46L-19.9 951.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 896L819.9 951.96L873.54 926.46L848.04 980.1L904 1000L848.04 1019.9L873.54 1073.54L819.9 1048.04L800 1104L780.1 1048.04L726.46 1073.54L751.96 1019.9L696 1000L751.96 980.1L726.46 926.46L780.1 951.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+  
+  <g opacity="1">
+    <circle cx="400" cy="440" r="222.72" fill="none" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.3"/>
+    <path d="M474.94 259.07L580.93 365.06L580.93 514.94L474.94 620.93L325.06 620.93L219.07 514.94L219.07 365.06L325.06 259.07Z" fill="none" stroke="#9C7A33" stroke-opacity="0.45" stroke-width="3.07"/>
+    <path d="M400 248L436.74 351.31L535.76 304.24L488.69 403.26L592 440L488.69 476.74L535.76 575.76L436.74 528.69L400 632L363.26 528.69L264.24 575.76L311.31 476.74L208 440L311.31 403.26L264.24 304.24L363.26 351.31Z" fill="#9C7A33" fill-opacity="0.16" stroke="#9C7A33" stroke-opacity="0.62" stroke-width="3.46" stroke-linejoin="round"/>
+    <path d="M445.55 330.02L442.09 397.91L509.98 394.45L459.52 440L509.98 485.55L442.09 482.09L445.55 549.98L400 499.52L354.45 549.98L357.91 482.09L290.02 485.55L340.48 440L290.02 394.45L357.91 397.91L354.45 330.02L400 380.48Z" fill="#9C7A33" fill-opacity="0.22" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="2.69" stroke-linejoin="round"/>
+    <path d="M400 382.4L440.73 399.27L457.6 440L440.73 480.73L400 497.6L359.27 480.73L342.4 440L359.27 399.27Z" fill="#9C7A33" fill-opacity="0.3" stroke="#9C7A33" stroke-opacity="0.7" stroke-width="2.3"/>
+  </g>
+
+  
+
+  <rect width="800" height="1000" fill="url(#vig-800x1000-2)"/>
+
+  <g>
+    <line x1="272" y1="876" x2="528" y2="876" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3.2"/>
+    <text x="400" y="928" text-anchor="middle"
+      font-family="Helvetica, Arial, sans-serif" font-size="28.8"
+      fill="#463421" fill-opacity="0.72" letter-spacing="11.2">THE NIKAH</text>
+  </g>
+
+  <rect x="24" y="24" width="752" height="952"
+    fill="none" stroke="#9C7A33" stroke-opacity="0.35" stroke-width="2.4"/>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1060" viewBox="0 0 800 1060" role="img" aria-label="The Valima">
+  <defs>
+    <linearGradient id="bg-800x1060-7" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0%" stop-color="#EDE1D6"/>
+      <stop offset="100%" stop-color="#C2A184"/>
+    </linearGradient>
+    <radialGradient id="glow-800x1060-7" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FDF9F5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FDF9F5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig-800x1060-7" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="55%" stop-color="#43312A" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#43312A" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="1060" fill="url(#bg-800x1060-7)"/>
+  <rect width="800" height="1060" fill="url(#glow-800x1060-7)"/>
+
+  
+    <path d="M0 -104L19.9 -48.04L73.54 -73.54L48.04 -19.9L104 0L48.04 19.9L73.54 73.54L19.9 48.04L0 104L-19.9 48.04L-73.54 73.54L-48.04 19.9L-104 0L-48.04 -19.9L-73.54 -73.54L-19.9 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 -104L819.9 -48.04L873.54 -73.54L848.04 -19.9L904 0L848.04 19.9L873.54 73.54L819.9 48.04L800 104L780.1 48.04L726.46 73.54L751.96 19.9L696 0L751.96 -19.9L726.46 -73.54L780.1 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M0 956L19.9 1011.96L73.54 986.46L48.04 1040.1L104 1060L48.04 1079.9L73.54 1133.54L19.9 1108.04L0 1164L-19.9 1108.04L-73.54 1133.54L-48.04 1079.9L-104 1060L-48.04 1040.1L-73.54 986.46L-19.9 1011.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 956L819.9 1011.96L873.54 986.46L848.04 1040.1L904 1060L848.04 1079.9L873.54 1133.54L819.9 1108.04L800 1164L780.1 1108.04L726.46 1133.54L751.96 1079.9L696 1060L751.96 1040.1L726.46 986.46L780.1 1011.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+  
+  <g opacity="1">
+    <circle cx="400" cy="466.4" r="222.72" fill="none" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.3"/>
+    <path d="M474.94 285.47L580.93 391.46L580.93 541.34L474.94 647.33L325.06 647.33L219.07 541.34L219.07 391.46L325.06 285.47Z" fill="none" stroke="#9C7A33" stroke-opacity="0.45" stroke-width="3.07"/>
+    <path d="M400 274.4L436.74 377.71L535.76 330.64L488.69 429.66L592 466.4L488.69 503.14L535.76 602.16L436.74 555.09L400 658.4L363.26 555.09L264.24 602.16L311.31 503.14L208 466.4L311.31 429.66L264.24 330.64L363.26 377.71Z" fill="#9C7A33" fill-opacity="0.16" stroke="#9C7A33" stroke-opacity="0.62" stroke-width="3.46" stroke-linejoin="round"/>
+    <path d="M445.55 356.42L442.09 424.31L509.98 420.85L459.52 466.4L509.98 511.95L442.09 508.49L445.55 576.38L400 525.92L354.45 576.38L357.91 508.49L290.02 511.95L340.48 466.4L290.02 420.85L357.91 424.31L354.45 356.42L400 406.88Z" fill="#9C7A33" fill-opacity="0.22" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="2.69" stroke-linejoin="round"/>
+    <path d="M400 408.8L440.73 425.67L457.6 466.4L440.73 507.13L400 524L359.27 507.13L342.4 466.4L359.27 425.67Z" fill="#9C7A33" fill-opacity="0.3" stroke="#9C7A33" stroke-opacity="0.7" stroke-width="2.3"/>
+  </g>
+
+  
+
+  <rect width="800" height="1060" fill="url(#vig-800x1060-7)"/>
+
+  <g>
+    <line x1="272" y1="936" x2="528" y2="936" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3.2"/>
+    <text x="400" y="988" text-anchor="middle"
+      font-family="Helvetica, Arial, sans-serif" font-size="28.8"
+      fill="#43312A" fill-opacity="0.72" letter-spacing="11.2">THE VALIMA</text>
+  </g>
+
+  <rect x="24" y="24" width="752" height="1012"
+    fill="none" stroke="#9C7A33" stroke-opacity="0.35" stroke-width="2.4"/>
+</svg>

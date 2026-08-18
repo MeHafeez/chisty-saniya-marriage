@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="The Bride">
+  <defs>
+    <linearGradient id="bg-900x1200-0" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0%" stop-color="#F0E2CB"/>
+      <stop offset="100%" stop-color="#CBAE83"/>
+    </linearGradient>
+    <radialGradient id="glow-900x1200-0" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FDF9F5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FDF9F5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig-900x1200-0" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="55%" stop-color="#4A3826" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#4A3826" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg-900x1200-0)"/>
+  <rect width="900" height="1200" fill="url(#glow-900x1200-0)"/>
+
+  
+    <path d="M0 -117L22.39 -54.05L82.73 -82.73L54.05 -22.39L117 0L54.05 22.39L82.73 82.73L22.39 54.05L0 117L-22.39 54.05L-82.73 82.73L-54.05 22.39L-117 0L-54.05 -22.39L-82.73 -82.73L-22.39 -54.05Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.34" stroke-linejoin="round"/>
+    <path d="M900 -117L922.39 -54.05L982.73 -82.73L954.05 -22.39L1017 0L954.05 22.39L982.73 82.73L922.39 54.05L900 117L877.61 54.05L817.27 82.73L845.95 22.39L783 0L845.95 -22.39L817.27 -82.73L877.61 -54.05Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.34" stroke-linejoin="round"/>
+    <path d="M0 1083L22.39 1145.95L82.73 1117.27L54.05 1177.61L117 1200L54.05 1222.39L82.73 1282.73L22.39 1254.05L0 1317L-22.39 1254.05L-82.73 1282.73L-54.05 1222.39L-117 1200L-54.05 1177.61L-82.73 1117.27L-22.39 1145.95Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.34" stroke-linejoin="round"/>
+    <path d="M900 1083L922.39 1145.95L982.73 1117.27L954.05 1177.61L1017 1200L954.05 1222.39L982.73 1282.73L922.39 1254.05L900 1317L877.61 1254.05L817.27 1282.73L845.95 1222.39L783 1200L845.95 1177.61L817.27 1117.27L877.61 1145.95Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.34" stroke-linejoin="round"/>
+  
+  <g opacity="1">
+    <circle cx="450" cy="528" r="250.56" fill="none" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.59"/>
+    <path d="M534.31 324.45L653.55 443.69L653.55 612.31L534.31 731.55L365.69 731.55L246.45 612.31L246.45 443.69L365.69 324.45Z" fill="none" stroke="#9C7A33" stroke-opacity="0.45" stroke-width="3.46"/>
+    <path d="M450 312L491.33 428.22L602.74 375.26L549.78 486.67L666 528L549.78 569.33L602.74 680.74L491.33 627.78L450 744L408.67 627.78L297.26 680.74L350.22 569.33L234 528L350.22 486.67L297.26 375.26L408.67 428.22Z" fill="#9C7A33" fill-opacity="0.16" stroke="#9C7A33" stroke-opacity="0.62" stroke-width="3.89" stroke-linejoin="round"/>
+    <path d="M501.25 404.27L497.35 480.65L573.73 476.75L516.96 528L573.73 579.25L497.35 575.35L501.25 651.73L450 594.96L398.75 651.73L402.65 575.35L326.27 579.25L383.04 528L326.27 476.75L402.65 480.65L398.75 404.27L450 461.04Z" fill="#9C7A33" fill-opacity="0.22" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3.02" stroke-linejoin="round"/>
+    <path d="M450 463.2L495.82 482.18L514.8 528L495.82 573.82L450 592.8L404.18 573.82L385.2 528L404.18 482.18Z" fill="#9C7A33" fill-opacity="0.3" stroke="#9C7A33" stroke-opacity="0.7" stroke-width="2.59"/>
+  </g>
+
+  <text x="450" y="528" text-anchor="middle" dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', serif" font-size="133.92" font-weight="400"
+        fill="#4A3826" fill-opacity="0.62">S</text>
+
+  <rect width="900" height="1200" fill="url(#vig-900x1200-0)"/>
+
+  <g>
+    <line x1="306" y1="1060.5" x2="594" y2="1060.5" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3.6"/>
+    <text x="450" y="1119" text-anchor="middle"
+      font-family="Helvetica, Arial, sans-serif" font-size="32.4"
+      fill="#4A3826" fill-opacity="0.72" letter-spacing="12.6">THE BRIDE</text>
+  </g>
+
+  <rect x="27" y="27" width="846" height="1146"
+    fill="none" stroke="#9C7A33" stroke-opacity="0.35" stroke-width="2.7"/>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="750" viewBox="0 0 1000 750" role="img" aria-label="The Valima">
+  <defs>
+    <linearGradient id="bg-1000x750-3" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0%" stop-color="#E9DFD2"/>
+      <stop offset="100%" stop-color="#B9A184"/>
+    </linearGradient>
+    <radialGradient id="glow-1000x750-3" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FDF9F5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FDF9F5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig-1000x750-3" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="55%" stop-color="#3D2F27" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#3D2F27" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="750" fill="url(#bg-1000x750-3)"/>
+  <rect width="1000" height="750" fill="url(#glow-1000x750-3)"/>
+
+  
+    <path d="M0 -97.5L18.66 -45.04L68.94 -68.94L45.04 -18.66L97.5 0L45.04 18.66L68.94 68.94L18.66 45.04L0 97.5L-18.66 45.04L-68.94 68.94L-45.04 18.66L-97.5 0L-45.04 -18.66L-68.94 -68.94L-18.66 -45.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.95" stroke-linejoin="round"/>
+    <path d="M1000 -97.5L1018.66 -45.04L1068.94 -68.94L1045.04 -18.66L1097.5 0L1045.04 18.66L1068.94 68.94L1018.66 45.04L1000 97.5L981.34 45.04L931.06 68.94L954.96 18.66L902.5 0L954.96 -18.66L931.06 -68.94L981.34 -45.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.95" stroke-linejoin="round"/>
+    <path d="M0 652.5L18.66 704.96L68.94 681.06L45.04 731.34L97.5 750L45.04 768.66L68.94 818.94L18.66 795.04L0 847.5L-18.66 795.04L-68.94 818.94L-45.04 768.66L-97.5 750L-45.04 731.34L-68.94 681.06L-18.66 704.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.95" stroke-linejoin="round"/>
+    <path d="M1000 652.5L1018.66 704.96L1068.94 681.06L1045.04 731.34L1097.5 750L1045.04 768.66L1068.94 818.94L1018.66 795.04L1000 847.5L981.34 795.04L931.06 818.94L954.96 768.66L902.5 750L954.96 731.34L931.06 681.06L981.34 704.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.95" stroke-linejoin="round"/>
+  
+  <g opacity="1">
+    <circle cx="500" cy="330" r="208.8" fill="none" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.16"/>
+    <path d="M570.26 160.38L669.62 259.74L669.62 400.26L570.26 499.62L429.74 499.62L330.38 400.26L330.38 259.74L429.74 160.38Z" fill="none" stroke="#9C7A33" stroke-opacity="0.45" stroke-width="2.88"/>
+    <path d="M500 150L534.44 246.85L627.28 202.72L583.15 295.56L680 330L583.15 364.44L627.28 457.28L534.44 413.15L500 510L465.56 413.15L372.72 457.28L416.85 364.44L320 330L416.85 295.56L372.72 202.72L465.56 246.85Z" fill="#9C7A33" fill-opacity="0.16" stroke="#9C7A33" stroke-opacity="0.62" stroke-width="3.24" stroke-linejoin="round"/>
+    <path d="M542.71 226.9L539.46 290.54L603.1 287.29L555.8 330L603.1 372.71L539.46 369.46L542.71 433.1L500 385.8L457.29 433.1L460.54 369.46L396.9 372.71L444.2 330L396.9 287.29L460.54 290.54L457.29 226.9L500 274.2Z" fill="#9C7A33" fill-opacity="0.22" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="2.52" stroke-linejoin="round"/>
+    <path d="M500 276L538.18 291.82L554 330L538.18 368.18L500 384L461.82 368.18L446 330L461.82 291.82Z" fill="#9C7A33" fill-opacity="0.3" stroke="#9C7A33" stroke-opacity="0.7" stroke-width="2.16"/>
+  </g>
+
+  <text x="500" y="330" text-anchor="middle" dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', serif" font-size="111.6" font-weight="400"
+        fill="#3D2F27" fill-opacity="0.62">III</text>
+
+  <rect width="1000" height="750" fill="url(#vig-1000x750-3)"/>
+
+  <g>
+    <line x1="380" y1="633.75" x2="620" y2="633.75" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3"/>
+    <text x="500" y="682.5" text-anchor="middle"
+      font-family="Helvetica, Arial, sans-serif" font-size="27"
+      fill="#3D2F27" fill-opacity="0.72" letter-spacing="10.5">THE VALIMA</text>
+  </g>
+
+  <rect x="22.5" y="22.5" width="955" height="705"
+    fill="none" stroke="#9C7A33" stroke-opacity="0.35" stroke-width="2.25"/>
+</svg>

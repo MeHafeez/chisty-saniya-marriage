@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1180" viewBox="0 0 800 1180" role="img" aria-label="The Bride">
+  <defs>
+    <linearGradient id="bg-800x1180-4" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0%" stop-color="#F4E9D8"/>
+      <stop offset="100%" stop-color="#D2B588"/>
+    </linearGradient>
+    <radialGradient id="glow-800x1180-4" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FDF9F5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FDF9F5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig-800x1180-4" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="55%" stop-color="#4A3724" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#4A3724" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="1180" fill="url(#bg-800x1180-4)"/>
+  <rect width="800" height="1180" fill="url(#glow-800x1180-4)"/>
+
+  
+    <path d="M0 -104L19.9 -48.04L73.54 -73.54L48.04 -19.9L104 0L48.04 19.9L73.54 73.54L19.9 48.04L0 104L-19.9 48.04L-73.54 73.54L-48.04 19.9L-104 0L-48.04 -19.9L-73.54 -73.54L-19.9 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 -104L819.9 -48.04L873.54 -73.54L848.04 -19.9L904 0L848.04 19.9L873.54 73.54L819.9 48.04L800 104L780.1 48.04L726.46 73.54L751.96 19.9L696 0L751.96 -19.9L726.46 -73.54L780.1 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M0 1076L19.9 1131.96L73.54 1106.46L48.04 1160.1L104 1180L48.04 1199.9L73.54 1253.54L19.9 1228.04L0 1284L-19.9 1228.04L-73.54 1253.54L-48.04 1199.9L-104 1180L-48.04 1160.1L-73.54 1106.46L-19.9 1131.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 1076L819.9 1131.96L873.54 1106.46L848.04 1160.1L904 1180L848.04 1199.9L873.54 1253.54L819.9 1228.04L800 1284L780.1 1228.04L726.46 1253.54L751.96 1199.9L696 1180L751.96 1160.1L726.46 1106.46L780.1 1131.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+  
+  <g opacity="1">
+    <circle cx="400" cy="519.2" r="222.72" fill="none" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.3"/>
+    <path d="M474.94 338.27L580.93 444.26L580.93 594.14L474.94 700.13L325.06 700.13L219.07 594.14L219.07 444.26L325.06 338.27Z" fill="none" stroke="#9C7A33" stroke-opacity="0.45" stroke-width="3.07"/>
+    <path d="M400 327.2L436.74 430.51L535.76 383.44L488.69 482.46L592 519.2L488.69 555.94L535.76 654.96L436.74 607.89L400 711.2L363.26 607.89L264.24 654.96L311.31 555.94L208 519.2L311.31 482.46L264.24 383.44L363.26 430.51Z" fill="#9C7A33" fill-opacity="0.16" stroke="#9C7A33" stroke-opacity="0.62" stroke-width="3.46" stroke-linejoin="round"/>
+    <path d="M445.55 409.22L442.09 477.11L509.98 473.65L459.52 519.2L509.98 564.75L442.09 561.29L445.55 629.18L400 578.72L354.45 629.18L357.91 561.29L290.02 564.75L340.48 519.2L290.02 473.65L357.91 477.11L354.45 409.22L400 459.68Z" fill="#9C7A33" fill-opacity="0.22" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="2.69" stroke-linejoin="round"/>
+    <path d="M400 461.6L440.73 478.47L457.6 519.2L440.73 559.93L400 576.8L359.27 559.93L342.4 519.2L359.27 478.47Z" fill="#9C7A33" fill-opacity="0.3" stroke="#9C7A33" stroke-opacity="0.7" stroke-width="2.3"/>
+  </g>
+
+  
+
+  <rect width="800" height="1180" fill="url(#vig-800x1180-4)"/>
+
+  <g>
+    <line x1="272" y1="1056" x2="528" y2="1056" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3.2"/>
+    <text x="400" y="1108" text-anchor="middle"
+      font-family="Helvetica, Arial, sans-serif" font-size="28.8"
+      fill="#4A3724" fill-opacity="0.72" letter-spacing="11.2">THE BRIDE</text>
+  </g>
+
+  <rect x="24" y="24" width="752" height="1132"
+    fill="none" stroke="#9C7A33" stroke-opacity="0.35" stroke-width="2.4"/>
+</svg>

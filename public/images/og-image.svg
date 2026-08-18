@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Khaja &amp; Saniya — VALIMA CEREMONY">
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#2A1F18"/>
+      <stop offset="55%" stop-color="#1C1410"/>
+      <stop offset="100%" stop-color="#120D0A"/>
+    </linearGradient>
+    <linearGradient id="og-foil" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9C7A33"/>
+      <stop offset="42%" stop-color="#F0DFB4"/>
+      <stop offset="100%" stop-color="#C6A66A"/>
+    </linearGradient>
+    <radialGradient id="og-glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0%" stop-color="#C6A66A" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#C6A66A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#og-bg)"/>
+  <rect width="1200" height="630" fill="url(#og-glow)"/>
+  <rect x="36" y="36" width="1128" height="558" fill="none" stroke="#C6A66A" stroke-opacity="0.4"/>
+  <rect x="46" y="46" width="1108" height="538" fill="none" stroke="#C6A66A" stroke-opacity="0.16"/>
+
+  
+  <g opacity="0.5">
+    <circle cx="160" cy="315" r="97.44" fill="none" stroke="#C6A66A" stroke-opacity="0.3" stroke-width="1.01"/>
+    <path d="M192.79 235.84L239.16 282.21L239.16 347.79L192.79 394.16L127.21 394.16L80.84 347.79L80.84 282.21L127.21 235.84Z" fill="none" stroke="#C6A66A" stroke-opacity="0.45" stroke-width="1.34"/>
+    <path d="M160 231L176.07 276.2L219.4 255.6L198.8 298.93L244 315L198.8 331.07L219.4 374.4L176.07 353.8L160 399L143.93 353.8L100.6 374.4L121.2 331.07L76 315L121.2 298.93L100.6 255.6L143.93 276.2Z" fill="#C6A66A" fill-opacity="0.16" stroke="#C6A66A" stroke-opacity="0.62" stroke-width="1.51" stroke-linejoin="round"/>
+    <path d="M179.93 266.88L178.41 296.59L208.12 295.07L186.04 315L208.12 334.93L178.41 333.41L179.93 363.12L160 341.04L140.07 363.12L141.59 333.41L111.88 334.93L133.96 315L111.88 295.07L141.59 296.59L140.07 266.88L160 288.96Z" fill="#C6A66A" fill-opacity="0.22" stroke="#C6A66A" stroke-opacity="0.5" stroke-width="1.18" stroke-linejoin="round"/>
+    <path d="M160 289.8L177.82 297.18L185.2 315L177.82 332.82L160 340.2L142.18 332.82L134.8 315L142.18 297.18Z" fill="#C6A66A" fill-opacity="0.3" stroke="#C6A66A" stroke-opacity="0.7" stroke-width="1.01"/>
+  </g>
+  
+  <g opacity="0.5">
+    <circle cx="1040" cy="315" r="97.44" fill="none" stroke="#C6A66A" stroke-opacity="0.3" stroke-width="1.01"/>
+    <path d="M1072.79 235.84L1119.16 282.21L1119.16 347.79L1072.79 394.16L1007.21 394.16L960.84 347.79L960.84 282.21L1007.21 235.84Z" fill="none" stroke="#C6A66A" stroke-opacity="0.45" stroke-width="1.34"/>
+    <path d="M1040 231L1056.07 276.2L1099.4 255.6L1078.8 298.93L1124 315L1078.8 331.07L1099.4 374.4L1056.07 353.8L1040 399L1023.93 353.8L980.6 374.4L1001.2 331.07L956 315L1001.2 298.93L980.6 255.6L1023.93 276.2Z" fill="#C6A66A" fill-opacity="0.16" stroke="#C6A66A" stroke-opacity="0.62" stroke-width="1.51" stroke-linejoin="round"/>
+    <path d="M1059.93 266.88L1058.41 296.59L1088.12 295.07L1066.04 315L1088.12 334.93L1058.41 333.41L1059.93 363.12L1040 341.04L1020.07 363.12L1021.59 333.41L991.88 334.93L1013.96 315L991.88 295.07L1021.59 296.59L1020.07 266.88L1040 288.96Z" fill="#C6A66A" fill-opacity="0.22" stroke="#C6A66A" stroke-opacity="0.5" stroke-width="1.18" stroke-linejoin="round"/>
+    <path d="M1040 289.8L1057.82 297.18L1065.2 315L1057.82 332.82L1040 340.2L1022.18 332.82L1014.8 315L1022.18 297.18Z" fill="#C6A66A" fill-opacity="0.3" stroke="#C6A66A" stroke-opacity="0.7" stroke-width="1.01"/>
+  </g>
+
+  <text x="600" y="214" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="21"
+    fill="#E3CE9F" fill-opacity="0.85" letter-spacing="13">VALIMA CEREMONY</text>
+
+  <text x="600" y="345" text-anchor="middle" font-family="Georgia, serif" font-size="104"
+    fill="url(#og-foil)">Khaja &amp; Saniya</text>
+
+  <line x1="470" y1="400" x2="730" y2="400" stroke="#9C7A33" stroke-opacity="0.6" stroke-width="1"/>
+
+  <text x="600" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="34"
+    fill="#F3E7D3" letter-spacing="7">3 OCTOBER 2026</text>
+
+  <text x="600" y="512" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#E3CE9F" fill-opacity="0.7" letter-spacing="8">GUNTUR, ANDHRA PRADESH</text>
+</svg>

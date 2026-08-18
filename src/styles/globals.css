@@ -1,0 +1,404 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   DESIGN TOKENS
+   Tailwind v4 reads @theme and emits utilities: bg-ivory, text-gold, font-display…
+   ========================================================================== */
+@theme {
+  /* — Palette —————————————————————————————————
+     Warm neutrals with a genuinely usable tonal range. The champagne and the
+     muted text sit far enough from the page ground to read as separate
+     surfaces; the earlier values were within a few percent of each other and
+     the whole page looked like one flat, unfinished wash. */
+  --color-ivory: #fdf9f5;
+  --color-champagne: #f2e8db;
+  --color-ink: #2f2521;
+  --color-gold: #c6a66a;
+  --color-gold-soft: #e0c795;
+  --color-gold-deep: #96742e;
+  --color-muted: #6d6058;
+  --color-line: #ded0bd;
+  --color-shadow: #2b211d;
+
+  /* ——— Royal design tokens ———————————————————————————
+     The single source for the palette established by the opening. Sections
+     reference these rather than repeating hex values. */
+  --royal-bg: #0e0805;
+  --royal-deep: #1a0f09;
+  --royal-raised: #2a1810;
+  --royal-timber: #3a2413;
+  --royal-cream: #fbf4ea;
+  --royal-parchment: #f3e7d6;
+  --royal-gold: #c9a45c;
+  --royal-gold-light: #f0dfb4;
+  --royal-gold-deep: #8e6c22;
+  --royal-text: #f4e6c4;
+  --royal-muted: #c9a45c;
+
+  /* Night ground — used by whole sections for tonal contrast. */
+  --color-night: var(--royal-bg);
+  --color-night-raised: var(--royal-raised);
+
+  /* Deep wine — the third note that keeps gold-on-ivory from going anaemic.
+     Reserved for primary actions and a handful of accents. */
+  --color-wine: #7a1f35;
+  --color-wine-deep: #5a1526;
+  --color-wine-soft: #9c3247;
+
+  /* — Type ————————————————————————————————————— */
+  --font-display: var(--font-cormorant), 'Cormorant Garamond', serif;
+  --font-serif: var(--font-playfair), 'Playfair Display', serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-vibes), 'Great Vibes', cursive;
+
+  /* — Fluid type scale (clamped, mobile-first) ——————————— */
+  --text-eyebrow: clamp(0.625rem, 0.58rem + 0.22vw, 0.75rem);
+  --text-body: clamp(0.95rem, 0.9rem + 0.25vw, 1.0625rem);
+  --text-lead: clamp(1.05rem, 0.95rem + 0.55vw, 1.375rem);
+  --text-h4: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+  --text-h3: clamp(1.6rem, 1.3rem + 1.5vw, 2.5rem);
+  --text-h2: clamp(2.1rem, 1.5rem + 3vw, 4.25rem);
+  --text-h1: clamp(2.75rem, 1.6rem + 5.6vw, 7.5rem);
+  --text-mega: clamp(3.5rem, 1.5rem + 9vw, 11rem);
+
+  /* — Motion ——————————————————————————————————— */
+  --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-drama: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* — Layout ——————————————————————————————————— */
+  --spacing-section: clamp(3.75rem, 2.25rem + 6.5vw, 8.5rem);
+  /* Softened from a 2px hairline: sharp corners read as austere next to the
+     moulded surfaces, and every reference in this class is rounded. */
+  --radius-card: 14px;
+  --radius-tile: 18px;
+
+  --shadow-lift: 0 1px 2px rgb(58 46 42 / 0.04), 0 12px 32px -12px rgb(58 46 42 / 0.12);
+  --shadow-float: 0 2px 4px rgb(58 46 42 / 0.03), 0 32px 64px -24px rgb(58 46 42 / 0.2);
+  --shadow-glow: 0 0 0 1px rgb(198 166 106 / 0.35), 0 24px 60px -20px rgb(198 166 106 / 0.4);
+}
+
+/**
+ * Night sections.
+ *
+ * Redefining the palette tokens on the section element means every existing
+ * utility — text-ink, text-muted, border-line, bg-champagne — inverts for free,
+ * with no per-component dark variants to maintain. Gold is lifted because the
+ * mid-gold used on ivory goes muddy against near-black.
+ */
+[data-tone='night'] {
+  /* Matched to the opening's ground so the dark sections read as the same
+     room the guest just walked through. */
+  --color-ivory: var(--royal-bg);
+  --color-champagne: var(--royal-raised);
+  --color-ink: var(--royal-text);
+  --color-muted: #b79d78;
+  --color-line: #3b2a1c;
+  --color-gold: #dcc084;
+  --color-gold-soft: var(--royal-gold-light);
+  --color-gold-deep: #e2cb96;
+  --color-shadow: #000000;
+}
+
+/* Optional dark mode — opt-in via <html data-theme="dark">, never automatic,
+   because a wedding invitation should open exactly as it was designed. */
+[data-theme='dark'] {
+  --color-ivory: #14100e;
+  --color-champagne: #1c1613;
+  --color-ink: #f3e9dd;
+  --color-line: #362b25;
+  --color-muted: #a4948a;
+  --color-shadow: #000000;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto; /* Lenis owns scrolling */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.75;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Locks scroll while the loader and cover are on screen. */
+  body[data-locked='true'] {
+    overflow: hidden;
+    height: 100dvh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-gold) 30%, transparent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  /* Custom cursor replaces the native one only on true pointer devices. */
+  @media (hover: hover) and (pointer: fine) {
+    html[data-cursor='custom'],
+    html[data-cursor='custom'] * {
+      cursor: none;
+    }
+  }
+
+  img, svg, video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, textarea, select, button {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold-soft) transparent;
+  }
+  ::-webkit-scrollbar { width: 7px; }
+  ::-webkit-scrollbar-track { background: var(--color-champagne); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gold-soft);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
+}
+
+/* ==========================================================================
+   COMPONENT PRIMITIVES
+   ========================================================================== */
+@layer components {
+  .container-luxe {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 0.6rem + 3.2vw, 4.5rem);
+  }
+
+  .container-narrow {
+    width: 100%;
+    max-width: 46rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 0.6rem + 3.2vw, 4.5rem);
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep);
+  }
+
+  /* Paper grain — a single inline SVG turbulence, no network request. */
+  .paper-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+  }
+
+  /* Gold foil gradient for headline accents. */
+  .text-foil {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-gold-deep) 0%,
+      var(--color-gold) 22%,
+      #f0e2c2 42%,
+      var(--color-gold) 60%,
+      var(--color-gold-deep) 100%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: foil-shift 9s var(--ease-luxe) infinite;
+  }
+
+  .glass-card {
+    background: linear-gradient(
+      145deg,
+      color-mix(in oklab, var(--color-ivory) 82%, transparent),
+      color-mix(in oklab, var(--color-champagne) 62%, transparent)
+    );
+    backdrop-filter: blur(18px) saturate(1.25);
+    -webkit-backdrop-filter: blur(18px) saturate(1.25);
+    border: 1px solid color-mix(in oklab, var(--color-gold) 22%, transparent);
+    box-shadow: var(--shadow-float);
+  }
+
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-gold) 55%, transparent) 30%,
+      color-mix(in oklab, var(--color-gold) 55%, transparent) 70%,
+      transparent
+    );
+  }
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+@layer utilities {
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  }
+
+  .will-animate {
+    will-change: transform, opacity, filter;
+  }
+
+  .gpu {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Split-text primitives — a clipping line with a translating child. */
+  .split-line {
+    display: block;
+    overflow: hidden;
+  }
+
+  .balance {
+    text-wrap: balance;
+  }
+}
+
+/* ==========================================================================
+   KEYFRAMES
+   ========================================================================== */
+@keyframes foil-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes drift {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(14px, -22px, 0) rotate(6deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+@keyframes trace {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Background medallions turn slowly enough to be felt rather than seen. */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
+}
+
+/* Ken Burns — transform only, so it stays on the compositor.
+   `--kb-scale` is supplied per instance by the KenBurns component. */
+@keyframes ken-burns-in {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to { transform: scale(var(--kb-scale, 1.08)) translate3d(-1.5%, -1%, 0); }
+}
+
+@keyframes ken-burns-out {
+  from { transform: scale(var(--kb-scale, 1.08)) translate3d(1.5%, 1%, 0); }
+  to { transform: scale(1) translate3d(0, 0, 0); }
+}
+
+/* The hero banner has its names printed into the artwork, so it breathes from
+   the centre with no translate — nothing can drift toward a crop edge. */
+@keyframes banner-breathe {
+  from { transform: scale(1); }
+  to { transform: scale(1.025); }
+}
+
+/* The heart seal is the only way into the invitation, so it has a slow
+   double-beat to read as pressable without needing a button around it. */
+@keyframes seal-beat {
+  0%, 100% { transform: scale(1); }
+  12% { transform: scale(1.055); }
+  24% { transform: scale(1); }
+  36% { transform: scale(1.035); }
+  50% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   Motion is the product here, so reduced-motion keeps every element visible
+   and simply removes the movement.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .text-foil {
+    animation: none;
+  }
+}
+
+/* Print — a guest may want a paper copy of the details. */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+}

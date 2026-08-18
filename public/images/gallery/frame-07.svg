@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="760" viewBox="0 0 800 760" role="img" aria-label="Flowers for the hall">
+  <defs>
+    <linearGradient id="bg-800x760-6" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0%" stop-color="#F0E2CB"/>
+      <stop offset="100%" stop-color="#CBAE83"/>
+    </linearGradient>
+    <radialGradient id="glow-800x760-6" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FDF9F5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FDF9F5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig-800x760-6" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="55%" stop-color="#4A3826" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#4A3826" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="760" fill="url(#bg-800x760-6)"/>
+  <rect width="800" height="760" fill="url(#glow-800x760-6)"/>
+
+  
+    <path d="M0 -98.8L18.9 -45.64L69.86 -69.86L45.64 -18.9L98.8 0L45.64 18.9L69.86 69.86L18.9 45.64L0 98.8L-18.9 45.64L-69.86 69.86L-45.64 18.9L-98.8 0L-45.64 -18.9L-69.86 -69.86L-18.9 -45.64Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.98" stroke-linejoin="round"/>
+    <path d="M800 -98.8L818.9 -45.64L869.86 -69.86L845.64 -18.9L898.8 0L845.64 18.9L869.86 69.86L818.9 45.64L800 98.8L781.1 45.64L730.14 69.86L754.36 18.9L701.2 0L754.36 -18.9L730.14 -69.86L781.1 -45.64Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.98" stroke-linejoin="round"/>
+    <path d="M0 661.2L18.9 714.36L69.86 690.14L45.64 741.1L98.8 760L45.64 778.9L69.86 829.86L18.9 805.64L0 858.8L-18.9 805.64L-69.86 829.86L-45.64 778.9L-98.8 760L-45.64 741.1L-69.86 690.14L-18.9 714.36Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.98" stroke-linejoin="round"/>
+    <path d="M800 661.2L818.9 714.36L869.86 690.14L845.64 741.1L898.8 760L845.64 778.9L869.86 829.86L818.9 805.64L800 858.8L781.1 805.64L730.14 829.86L754.36 778.9L701.2 760L754.36 741.1L730.14 690.14L781.1 714.36Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="1.98" stroke-linejoin="round"/>
+  
+  <g opacity="1">
+    <circle cx="400" cy="334.4" r="211.58" fill="none" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.19"/>
+    <path d="M471.2 162.51L571.89 263.2L571.89 405.6L471.2 506.29L328.8 506.29L228.11 405.6L228.11 263.2L328.8 162.51Z" fill="none" stroke="#9C7A33" stroke-opacity="0.45" stroke-width="2.92"/>
+    <path d="M400 152L434.9 250.14L528.98 205.42L484.26 299.5L582.4 334.4L484.26 369.3L528.98 463.38L434.9 418.66L400 516.8L365.1 418.66L271.02 463.38L315.74 369.3L217.6 334.4L315.74 299.5L271.02 205.42L365.1 250.14Z" fill="#9C7A33" fill-opacity="0.16" stroke="#9C7A33" stroke-opacity="0.62" stroke-width="3.28" stroke-linejoin="round"/>
+    <path d="M443.28 229.92L439.98 294.42L504.48 291.12L456.54 334.4L504.48 377.68L439.98 374.38L443.28 438.88L400 390.94L356.72 438.88L360.02 374.38L295.52 377.68L343.46 334.4L295.52 291.12L360.02 294.42L356.72 229.92L400 277.86Z" fill="#9C7A33" fill-opacity="0.22" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="2.55" stroke-linejoin="round"/>
+    <path d="M400 279.68L438.69 295.71L454.72 334.4L438.69 373.09L400 389.12L361.31 373.09L345.28 334.4L361.31 295.71Z" fill="#9C7A33" fill-opacity="0.3" stroke="#9C7A33" stroke-opacity="0.7" stroke-width="2.19"/>
+  </g>
+
+  
+
+  <rect width="800" height="760" fill="url(#vig-800x760-6)"/>
+
+  <g>
+    <line x1="278.4" y1="642.2" x2="521.6" y2="642.2" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3.04"/>
+    <text x="400" y="691.6" text-anchor="middle"
+      font-family="Helvetica, Arial, sans-serif" font-size="27.36"
+      fill="#4A3826" fill-opacity="0.72" letter-spacing="10.64">FLOWERS FOR THE HALL</text>
+  </g>
+
+  <rect x="22.8" y="22.8" width="754.4" height="714.4"
+    fill="none" stroke="#9C7A33" stroke-opacity="0.35" stroke-width="2.28"/>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900" role="img" aria-label="One long table">
+  <defs>
+    <linearGradient id="bg-800x900-5" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0%" stop-color="#EFE3D0"/>
+      <stop offset="100%" stop-color="#C4A67B"/>
+    </linearGradient>
+    <radialGradient id="glow-800x900-5" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FDF9F5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FDF9F5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig-800x900-5" cx="0.5" cy="0.46" r="0.72">
+      <stop offset="55%" stop-color="#453322" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#453322" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="900" fill="url(#bg-800x900-5)"/>
+  <rect width="800" height="900" fill="url(#glow-800x900-5)"/>
+
+  
+    <path d="M0 -104L19.9 -48.04L73.54 -73.54L48.04 -19.9L104 0L48.04 19.9L73.54 73.54L19.9 48.04L0 104L-19.9 48.04L-73.54 73.54L-48.04 19.9L-104 0L-48.04 -19.9L-73.54 -73.54L-19.9 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 -104L819.9 -48.04L873.54 -73.54L848.04 -19.9L904 0L848.04 19.9L873.54 73.54L819.9 48.04L800 104L780.1 48.04L726.46 73.54L751.96 19.9L696 0L751.96 -19.9L726.46 -73.54L780.1 -48.04Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M0 796L19.9 851.96L73.54 826.46L48.04 880.1L104 900L48.04 919.9L73.54 973.54L19.9 948.04L0 1004L-19.9 948.04L-73.54 973.54L-48.04 919.9L-104 900L-48.04 880.1L-73.54 826.46L-19.9 851.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+    <path d="M800 796L819.9 851.96L873.54 826.46L848.04 880.1L904 900L848.04 919.9L873.54 973.54L819.9 948.04L800 1004L780.1 948.04L726.46 973.54L751.96 919.9L696 900L751.96 880.1L726.46 826.46L780.1 851.96Z" fill="#9C7A33" fill-opacity="0.12" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.08" stroke-linejoin="round"/>
+  
+  <g opacity="1">
+    <circle cx="400" cy="396" r="222.72" fill="none" stroke="#9C7A33" stroke-opacity="0.3" stroke-width="2.3"/>
+    <path d="M474.94 215.07L580.93 321.06L580.93 470.94L474.94 576.93L325.06 576.93L219.07 470.94L219.07 321.06L325.06 215.07Z" fill="none" stroke="#9C7A33" stroke-opacity="0.45" stroke-width="3.07"/>
+    <path d="M400 204L436.74 307.31L535.76 260.24L488.69 359.26L592 396L488.69 432.74L535.76 531.76L436.74 484.69L400 588L363.26 484.69L264.24 531.76L311.31 432.74L208 396L311.31 359.26L264.24 260.24L363.26 307.31Z" fill="#9C7A33" fill-opacity="0.16" stroke="#9C7A33" stroke-opacity="0.62" stroke-width="3.46" stroke-linejoin="round"/>
+    <path d="M445.55 286.02L442.09 353.91L509.98 350.45L459.52 396L509.98 441.55L442.09 438.09L445.55 505.98L400 455.52L354.45 505.98L357.91 438.09L290.02 441.55L340.48 396L290.02 350.45L357.91 353.91L354.45 286.02L400 336.48Z" fill="#9C7A33" fill-opacity="0.22" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="2.69" stroke-linejoin="round"/>
+    <path d="M400 338.4L440.73 355.27L457.6 396L440.73 436.73L400 453.6L359.27 436.73L342.4 396L359.27 355.27Z" fill="#9C7A33" fill-opacity="0.3" stroke="#9C7A33" stroke-opacity="0.7" stroke-width="2.3"/>
+  </g>
+
+  
+
+  <rect width="800" height="900" fill="url(#vig-800x900-5)"/>
+
+  <g>
+    <line x1="272" y1="776" x2="528" y2="776" stroke="#9C7A33" stroke-opacity="0.5" stroke-width="3.2"/>
+    <text x="400" y="828" text-anchor="middle"
+      font-family="Helvetica, Arial, sans-serif" font-size="28.8"
+      fill="#453322" fill-opacity="0.72" letter-spacing="11.2">ONE LONG TABLE</text>
+  </g>
+
+  <rect x="24" y="24" width="752" height="852"
+    fill="none" stroke="#9C7A33" stroke-opacity="0.35" stroke-width="2.4"/>
+</svg>
