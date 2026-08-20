@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
+import { HiOutlineXMark } from 'react-icons/hi2';
 
 import { Divider } from '@/components/ui/Divider';
 import { COUPLE_ORDER, NAV_LINKS, WEDDING } from '@/constants/wedding';
@@ -157,6 +158,19 @@ export function Navigation({ visible, onNavigate }: NavigationProps) {
             aria-label="Navigation menu"
           >
             <div className="paper-grain absolute inset-0 bg-gradient-to-b from-ivory to-champagne/60" />
+
+            {/* Close button for mobile and desktop */}
+            <motion.button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close menu"
+              className="absolute right-6 top-6 z-20 flex h-10 w-10 items-center justify-center rounded-full transition-colors duration-500 hover:text-gold-deep"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1, transition: { delay: 0.4, duration: 0.5 } }}
+              exit={{ opacity: 0, scale: 0.8 }}
+            >
+              <HiOutlineXMark className="text-2xl" />
+            </motion.button>
 
             <nav className="relative z-10 flex flex-col items-center gap-1 text-center">
               {NAV_LINKS.map((link, index) => (

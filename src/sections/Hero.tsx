@@ -75,31 +75,16 @@ export function Hero() {
         style={{ y: exitY }}
       >
         <picture>
-          {/* Desktop crop */}
-          <source
-            media="(min-width: 768px)"
-            type="image/webp"
-            srcSet="/images/banner/desktop-1024.webp 1024w, /images/banner/desktop-1440.webp 1440w, /images/banner/desktop-1672.webp 1672w"
-            sizes="100vw"
-          />
-          <source media="(min-width: 768px)" srcSet="/images/banner/desktop-fallback.jpg" />
-          {/* Mobile crop */}
-          <source
-            type="image/webp"
-            srcSet="/images/banner/mobile-480.webp 480w, /images/banner/mobile-640.webp 640w, /images/banner/mobile-852.webp 852w"
-            sizes="100vw"
-          />
-          {/* A plain <img> rather than next/image: <picture> art direction needs
-              real <source media> switching, which next/image cannot express, and
-              these renditions are already pre-optimised by the banners script. */}
+          {/* Desktop image */}
+          <source media="(min-width: 768px)" srcSet="/banner-desktop.png" />
+          {/* Mobile image */}
           <img
-            src="/images/banner/mobile-fallback.jpg"
+            src="/banner-mobile.png"
             alt={`${COUPLE.groom.fullName} and ${COUPLE.bride.fullName} — ${WEDDING.occasion}`}
             className="h-full w-full object-cover object-center"
             style={{
-              // A very slight centre-origin breath. No translate, so the baked-in
-              // names never drift toward a crop edge.
-              animation: reducedMotion ? undefined : 'banner-breathe 26s ease-in-out infinite alternate',
+              animation: reducedMotion ? undefined : 'banner-zoom 30s ease-in-out infinite alternate',
+              transformOrigin: '50% 50%',
             }}
             fetchPriority="high"
             decoding="async"
@@ -109,7 +94,7 @@ export function Hero() {
 
       {/* Rose petals falling across the banner */}
       <motion.div className="absolute inset-0" style={{ opacity: exitOpacity }}>
-        <RosePetals count={34} opacity={0.9} speed={0.85} />
+        <RosePetals count={60} opacity={1} speed={0.75} />
       </motion.div>
 
       {/* Wordless scroll cue — the only thing added over the artwork */}

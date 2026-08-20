@@ -90,36 +90,6 @@ export function Countdown() {
         <p className="mb-5 text-center font-sans text-[0.5625rem] uppercase tracking-[0.34em] text-gold-deep">
           A little something to uncover
         </p>
-
-        <ScratchReveal
-          className="rounded-[var(--radius-tile)] border border-gold/45"
-          hint="Scratch to reveal"
-          onReveal={() => setDateRevealed(true)}
-        >
-          <div className="relative flex flex-col items-center gap-3 px-6 py-11 text-center">
-            <div
-              aria-hidden
-              className="absolute inset-0"
-              style={{ background: 'linear-gradient(160deg, #FDF8F0 0%, #F2E5D2 100%)' }}
-            />
-            <FloralAccent variant="rosette" size={38} className="relative text-[#9C7A2E] opacity-90" />
-            <p className="relative font-sans text-[0.5625rem] uppercase tracking-[0.34em] text-[#9C7A2E]">
-              {scratchDate.weekday}
-            </p>
-            <p className="relative font-display text-[length:var(--text-h3)] font-light leading-none text-[#2F2521]">
-              {scratchDate.day} {scratchDate.month} {scratchDate.year}
-            </p>
-            <OrnamentalLine width={160} className="relative text-[#9C7A2E] opacity-85" />
-            {valima && (
-              <p className="relative font-serif text-[length:var(--text-lead)] font-light text-[#6D6058]">
-                {valima.name} · {valima.time}
-              </p>
-            )}
-            <p className="relative font-sans text-[0.5625rem] uppercase tracking-[0.28em] text-[#6D6058]/85">
-              {WEDDING.hijriDate}
-            </p>
-          </div>
-        </ScratchReveal>
       </motion.div>
 
       <motion.div

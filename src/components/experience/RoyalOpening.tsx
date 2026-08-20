@@ -6,7 +6,6 @@ import { GoldParticles, type GoldParticlesHandle } from '@/components/royal/Gold
 import { RoyalDoor } from '@/components/royal/RoyalDoor';
 import { RoyalCorner, OrnamentalLine, FloralAccent } from '@/components/royal/RoyalOrnaments';
 import { IslamicMonogram } from '@/components/decor/islamic/IslamicMonogram';
-import { MosqueSilhouette } from '@/components/decor/islamic/MosqueSilhouette';
 import { WaxSeal } from '@/components/decor/islamic/WaxSeal';
 import { COUPLE_ORDER, WEDDING } from '@/constants/wedding';
 import { buildIntroTimeline } from '@/animations/introTimeline';
@@ -146,21 +145,10 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
 
           {/* What stands beyond the doors */}
           <div ref={revealRef} className="absolute inset-0 overflow-hidden opacity-0">
-            <div
-              className="absolute inset-0"
-              style={{
-                background: 'linear-gradient(180deg, #2C1A0E 0%, #6B4520 52%, #C89A4E 100%)',
-              }}
-            />
-            <div className="absolute inset-x-0 bottom-0 h-[72%]">
-              <MosqueSilhouette active />
-            </div>
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'radial-gradient(60% 60% at 50% 78%, rgba(255,236,196,0.6) 0%, rgba(255,236,196,0) 70%)',
-              }}
+            <img
+              src="/opening.png"
+              alt="Opening"
+              className="h-full w-full object-cover object-center"
             />
           </div>
 

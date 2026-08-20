@@ -23,7 +23,7 @@ export function Closing() {
       ref={ref}
       id="closing"
       aria-label="Thank you"
-      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 py-[var(--spacing-section)]"
+      className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-[clamp(2rem,4vw,3rem)]"
     >
       <div className="paper-grain absolute inset-0 bg-gradient-to-b from-ivory via-champagne/50 to-ivory" />
       <ParticleCanvas variant="petals" density={30} opacity={0.65} />
@@ -49,19 +49,19 @@ export function Closing() {
           mode="char"
           stagger={0.06}
           delay={0.8}
-          className="mt-12 font-script text-[length:var(--text-h1)] leading-[1.1] text-foil"
+          className="mt-3 font-script text-[length:var(--text-h1)] leading-[1.1] text-foil"
         />
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.2, delay: 1.4 }}
-          className="mt-8 w-full"
+          className="mt-3 w-full"
         >
           <Divider className="mx-auto" width={260} variant="leaf" />
         </motion.div>
 
-        <div className="mt-10 flex flex-col gap-4">
+        <div className="mt-4 flex flex-col gap-3">
           {CLOSING.lines.map((line, index) => (
             <motion.p
               key={line}
@@ -80,7 +80,7 @@ export function Closing() {
         </div>
 
         <motion.p
-          className="mt-12 font-display text-[length:var(--text-h3)] font-light italic leading-tight text-ink"
+          className="mt-4 font-display text-[length:var(--text-h3)] font-light italic leading-tight text-ink"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 1.5, delay: 2.7, ease: EASE.luxe }}
@@ -92,13 +92,13 @@ export function Closing() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 1.6, delay: 3, ease: EASE.luxe }}
-          className="mt-14"
+          className="mt-5"
         >
           <IslamicMonogram size={124} animate={inView} delay={3.1} />
         </motion.div>
 
         <motion.div
-          className="mt-10 flex flex-col items-center gap-3"
+          className="mt-4 flex flex-col items-center gap-2"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.4, delay: 3.6 }}

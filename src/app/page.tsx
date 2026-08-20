@@ -8,7 +8,6 @@ import {
   Events,
   Family,
   Hero,
-  LoveStory,
   Venue,
   Welcome,
 } from '@/sections';
@@ -23,15 +22,12 @@ import {
  *
  * Section grounds, for reference when reordering:
  *   Hero cream · Welcome cream · Couple champagne · Events champagne
- *   · Story NIGHT · Countdown NIGHT · Venue NIGHT · Family champagne
- *   · Blessings champagne · Closing cream
+ *   · Countdown NIGHT · Venue NIGHT · Family champagne
+ *   · Blessings champagne
  *
- * Ceremonies come before The Three Days on purpose: the guest picks a ceremony
- * and uncovers its date first, then reads what each of the days means.
- *
- * The Gallery and RSVP sections were removed at the couple's request. Their
- * components and the `/api/rsvp` route are still in the repository, so either
- * can be restored by re-adding it here and to `NAV_LINKS`.
+ * The Three Days (LoveStory), Gallery, RSVP, and Closing sections have been removed
+ * at the couple's request. Their components are still in the repository,
+ * so either can be restored by re-adding it here and to `NAV_LINKS`.
  */
 export default function HomePage() {
   return (
@@ -48,9 +44,6 @@ export default function HomePage() {
       <Events />
 
       <RoyalTransition from="cream" to="night" motif="line" />
-      <LoveStory />
-
-      <RoyalTransition from="night" to="night" motif="sprig" />
       <Countdown />
 
       <RoyalTransition from="night" to="night" motif="line" />
@@ -62,7 +55,6 @@ export default function HomePage() {
       <RoyalTransition from="cream" to="cream" motif="line" />
       <Blessings />
 
-      <RoyalTransition from="cream" to="cream" motif="sprig" />
       <Closing />
 
       <Footer />

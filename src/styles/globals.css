@@ -367,6 +367,12 @@
   to { transform: scale(1.025); }
 }
 
+/* Smooth zoom in and out on the banner for dynamic motion — Ken Burns style. */
+@keyframes banner-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
 /* The heart seal is the only way into the invitation, so it has a slow
    double-beat to read as pressable without needing a button around it. */
 @keyframes seal-beat {

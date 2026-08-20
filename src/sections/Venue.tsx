@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HiOutlineArrowUpRight, HiOutlineMapPin } from 'react-icons/hi2';
+import { HiOutlineArrowUpRight, HiOutlineMapPin, HiOutlineCalendarDays } from 'react-icons/hi2';
 
 import { MapCard } from '@/components/cards/MapCard';
 import { GoldParticles } from '@/components/royal/GoldParticles';
@@ -9,7 +9,7 @@ import { FloralAccent, OrnamentalLine, RoyalCorner } from '@/components/royal/Ro
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { EVENTS, VENUE, WEDDING } from '@/constants/wedding';
+import { COUPLE_ORDER, EVENTS, VENUE, WEDDING } from '@/constants/wedding';
 import { EASE, STAGGER, VIEWPORT } from '@/constants/motion';
 import { splitDate } from '@/utils/format';
 
@@ -17,6 +17,40 @@ const item = {
   hidden: { opacity: 0, y: 28, filter: 'blur(7px)' },
   visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 1.15, ease: EASE.luxe } },
 };
+
+function generateCalendarEvent() {
+  const event = EVENTS[EVENTS.length - 1]; // Valima
+  const startTime = WEDDING.date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  const endTime = new Date(WEDDING.date.getTime() + 4 * 60 * 60 * 1000).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+  const icalContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTART:${startTime}
+DTEND:${endTime}
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+UID:wedding-${WEDDING.date.getTime()}@example.com
+CREATED:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DESCRIPTION:${WEDDING.occasion} - ${COUPLE_ORDER[0].fullName} & ${COUPLE_ORDER[1].fullName}
+LAST-MODIFIED:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+LOCATION:${VENUE.name}\\, ${VENUE.addressLines.join(', ')}
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:${WEDDING.occasion}
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR`;
+
+  const blob = new Blob([icalContent], { type: 'text/calendar' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${COUPLE_ORDER[0].name}-${COUPLE_ORDER[1].name}-valima.ics`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
 
 /**
  * Section 07 — the venue.
@@ -138,6 +172,14 @@ export function Venue() {
                 aria-label={`Get directions to ${VENUE.name}`}
               >
                 Get Directions
+              </Button>
+              <Button
+                onClick={generateCalendarEvent}
+                variant="outline"
+                icon={<HiOutlineCalendarDays aria-hidden />}
+                aria-label="Add to calendar"
+              >
+                Add to Calendar
               </Button>
             </motion.div>
           </motion.div>

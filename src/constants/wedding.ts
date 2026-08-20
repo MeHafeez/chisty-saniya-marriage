@@ -29,14 +29,14 @@ import type {
 export const COUPLE = {
   groom: {
     id: 'groom',
-    name: 'Khaja',
+    name: 'Chisty',
     fullName: 'Shaik Khaja Mohiddin Chisty',
     familyName: 'Chisty',
-    initial: 'K',
+    initial: 'C',
     role: 'The Groom',
-    title: 'Senior Software Engineer',
+    // title: 'Senior Software Engineer',
     parents: 'Eldest son of Mrs. & Mr. Shaik Chinna Baji',
-    grandparents: 'Grandson of Late Mrs & Mr Shaik Shaik Bade Saida',
+    grandparents: 'Grandson of Late Mrs & Mr Shaik Bade Saida',
     // TODO (family): replace with a few lines in your own words.
     bio: 'Eldest son of the Shaik family of Guntur, and a Senior Software Engineer by profession.',
     // Transparent cut-out; renditions built by `npm run portraits`.
@@ -79,14 +79,14 @@ export const WEDDING = {
   occasion: 'Valima Ceremony',
   city: 'Guntur, Andhra Pradesh',
   // TODO (family): change or remove.
-  hashtag: '#KhajaWedsSaniya',
+  hashtag: '#ChistyWedsSaniya',
   invitationLine:
     'Solicit your gracious presence on the auspicious occasion of the Valima Ceremony of our eldest son.',
   bismillah: 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
   bismillahTranslation: 'In the name of Allah, the Most Beneficent, the Most Merciful',
   inShaAllah: 'In Sha Allah',
   hosts: 'Mrs. & Mr. Shaik Chinna Baji',
-  blessedBy: 'Late Mrs & Mr Shaik Shaik Bade Saida',
+  blessedBy: 'Late Mrs & Mr Shaik Bade Saida',
   quote: {
     text: 'And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquillity with them, and He has put love and mercy between your hearts.',
     source: 'Surah Ar-Rum, 30:21',
@@ -97,7 +97,6 @@ export const NAV_LINKS: readonly NavLink[] = [
   { id: 'welcome', label: 'Welcome', href: '#welcome' },
   { id: 'couple', label: 'The Couple', href: '#couple' },
   { id: 'events', label: 'Ceremonies', href: '#events' },
-  { id: 'story', label: 'The Three Days', href: '#story' },
   { id: 'countdown', label: 'Countdown', href: '#countdown' },
   { id: 'venue', label: 'Venue', href: '#venue' },
   { id: 'family', label: 'Family', href: '#family' },
@@ -243,7 +242,7 @@ export const GALLERY: readonly GalleryImage[] = [
 
 export const FAMILY: readonly FamilyMember[] = [
   { id: 'g1', name: 'Mrs. & Mr. Shaik Chinna Baji', relation: 'Parents of the Groom', side: 'groom' },
-  { id: 'g2', name: 'Late Mrs & Mr Shaik Shaik Bade Saida', relation: 'Grandparents of the Groom', side: 'groom' },
+  { id: 'g2', name: 'Late Mrs & Mr Shaik Bade Saida', relation: 'Grandparents of the Groom', side: 'groom' },
   { id: 'b1', name: 'Mrs & Mr Syed Allah Malik', relation: 'Parents of the Bride', side: 'bride' },
   { id: 'b2', name: 'Mrs & Mr Syed Khaalek', relation: 'Grandparents of the Bride', side: 'bride' },
 ];
@@ -269,38 +268,10 @@ export const WELL_WISHERS = {
 export const BLESSINGS: readonly Blessing[] = [
   {
     id: 'b1',
-    name: 'بَارَكَ اللَّهُ لَكَ',
-    relation: 'Sunan Abi Dawud 2130',
-    message:
-      'May Allah bless you, and shower His blessings upon you, and join you together in goodness.',
-  },
-  {
-    id: 'b2',
-    name: 'Surah Al-Furqan',
-    relation: 'Al-Furqan 25:74',
-    message:
-      'Our Lord, grant us from among our spouses and offspring comfort to our eyes, and make us leaders of the righteous.',
-  },
-  {
-    id: 'b3',
     name: 'Surah Ar-Rum',
-    relation: 'Ar-Rum 30:21',
+    relation: 'Quran 30:21',
     message:
       'And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquillity with them, and He has put love and mercy between your hearts.',
-  },
-  {
-    id: 'b4',
-    name: 'A prayer for the home',
-    relation: 'For Khaja & Saniya',
-    message:
-      'May your home always be one of peace, your table always full, and your patience with one another never run short.',
-  },
-  {
-    id: 'b5',
-    name: 'From the two families',
-    relation: 'Shaik & Syed',
-    message:
-      'Two families have become one. May Allah keep this bond strong, and may every year be kinder than the last.',
   },
 ];
 

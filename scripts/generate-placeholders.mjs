@@ -161,7 +161,7 @@ function makePlaceholder({ width, height, index, monogram = '', caption = '' }) 
 
 /** Keep in step with COUPLE / WEDDING in src/constants/wedding.ts. */
 const CARD = {
-  groom: { name: 'Khaja', initial: 'K' },
+  groom: { name: 'Chisty', initial: 'C' },
   bride: { name: 'Saniya', initial: 'S' },
   occasion: 'VALIMA CEREMONY',
   date: '3 OCTOBER 2026',

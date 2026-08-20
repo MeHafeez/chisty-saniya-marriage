@@ -63,71 +63,71 @@ export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions 
 
   timeline
     /* 0.0 — the press registers: ground darkens, seal takes the light */
-    .to(targets.vignette, { opacity: 1, duration: 0.9 }, 0)
-    .to(targets.seal, { scale: 1.12, filter: 'brightness(1.9)', duration: 0.5, ease: 'power2.out' }, 0)
+    .to(targets.vignette, { opacity: 1, duration: 1.3 }, 0)
+    .to(targets.seal, { scale: 1.12, filter: 'brightness(1.9)', duration: 0.8, ease: 'power2.out' }, 0)
 
-    /* 0.2 — gold begins to gather */
-    .call(() => targets.particles?.setIntensity(1.35), undefined, 0.2)
-    .call(() => targets.particles?.burst(0.5, 0.46, 22), undefined, 0.25)
+    /* 0.3 — gold begins to gather */
+    .call(() => targets.particles?.setIntensity(1.35), undefined, 0.3)
+    .call(() => targets.particles?.burst(0.5, 0.46, 22), undefined, 0.4)
 
-    /* 0.35 — the cover furniture withdraws so the doors can be read */
-    .to(targets.cover, { autoAlpha: 0, y: -26, filter: 'blur(8px)', duration: 0.75 }, 0.35)
-    .to(targets.seal, { scale: 0.72, autoAlpha: 0, duration: 0.6, ease: 'power2.in' }, 0.4)
+    /* 0.5 — the cover furniture withdraws so the doors can be read */
+    .to(targets.cover, { autoAlpha: 0, y: -26, filter: 'blur(8px)', duration: 1.1 }, 0.5)
+    .to(targets.seal, { scale: 0.72, autoAlpha: 0, duration: 0.9, ease: 'power2.in' }, 0.6)
 
-    /* 0.4 — light kindles behind the leaves */
+    /* 0.6 — light kindles behind the leaves */
     .fromTo(
       targets.light,
       { opacity: 0, scale: 0.55 },
-      { opacity: 0.8, scale: 1, duration: 1.5, ease: 'power2.out' },
-      0.4,
+      { opacity: 0.8, scale: 1, duration: 2.2, ease: 'power2.out' },
+      0.6,
     )
 
-    /* 0.6 — the leaves break, then accelerate away on their outer hinges */
+    /* 0.9 — the leaves break, then accelerate away on their outer hinges */
     .fromTo(
       targets.leftDoor,
       { rotateY: 0 },
-      { rotateY: -78, duration: 2.1, ease: 'power3.inOut' },
-      0.6,
+      { rotateY: -78, duration: 3, ease: 'power3.inOut' },
+      0.9,
     )
     .fromTo(
       targets.rightDoor,
       { rotateY: 0 },
-      { rotateY: 78, duration: 2.1, ease: 'power3.inOut' },
-      0.6,
+      { rotateY: 78, duration: 3, ease: 'power3.inOut' },
+      0.9,
     )
     // A touch of push-back so the leaves recede rather than merely rotating.
-    .to([targets.leftDoor, targets.rightDoor], { z: -140, duration: 2.1, ease: 'power2.in' }, 0.6)
+    .to([targets.leftDoor, targets.rightDoor], { z: -140, duration: 3, ease: 'power2.in' }, 0.9)
 
-    /* 1.4 — the doorway floods */
-    .to(targets.light, { opacity: 1, scale: 1.5, duration: 1.1, ease: 'power2.out' }, 1.4)
-    .call(() => targets.particles?.setIntensity(1.6), undefined, 1.5)
-    .call(() => targets.particles?.burst(0.5, 0.5, 34), undefined, 1.6)
+    /* 2.0 — the doorway floods */
+    .to(targets.light, { opacity: 1, scale: 1.5, duration: 1.6, ease: 'power2.out' }, 2.0)
+    .call(() => targets.particles?.setIntensity(1.6), undefined, 2.2)
+    .call(() => targets.particles?.burst(0.5, 0.5, 34), undefined, 2.4)
 
-    /* 2.0 — what stands beyond becomes visible */
+    /* 2.8 — what stands beyond becomes visible */
     .fromTo(
       targets.reveal,
       { autoAlpha: 0, scale: 0.94, filter: 'blur(14px)' },
-      { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 1.3, ease: 'power2.out' },
-      1.95,
+      { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 1.8, ease: 'power2.out' },
+      2.8,
     )
 
-    /* 2.4 — the camera travels through the arch */
-    .to(targets.root, { scale: 1.9, duration: 1.5, ease: 'power2.in' }, 2.35)
-    .to([targets.leftDoor, targets.rightDoor], { autoAlpha: 0, duration: 0.8 }, 2.5)
+    /* 3.4 — the camera travels through the arch */
+    .to(targets.root, { scale: 1.9, duration: 2, ease: 'power2.in' }, 3.3)
+    .to([targets.leftDoor, targets.rightDoor], { autoAlpha: 0, duration: 1, }, 3.6)
 
-    /* 2.6 — cinematic flash, then hand over */
+    /* 3.9 — cinematic flash, then hand over */
     .fromTo(
       targets.flash,
       { opacity: 0 },
-      { opacity: 1, duration: 0.75, ease: 'power2.in' },
-      2.75,
+      { opacity: 1, duration: 1, ease: 'power2.in' },
+      3.9,
     )
-    .call(() => targets.particles?.setIntensity(0.5), undefined, 3.3)
-    .to(targets.root, { autoAlpha: 0, duration: 0.7, ease: 'power2.out' }, 3.45);
+    .call(() => targets.particles?.setIntensity(0.5), undefined, 4.5)
+    .to(targets.root, { autoAlpha: 0, duration: 1, ease: 'power2.out' }, 4.7);
 
   return timeline;
 }
 
 /** Total run time in seconds, used to schedule the hand-off. */
-export const INTRO_DURATION = 4.15;
+export const INTRO_DURATION = 5.9;
 export const INTRO_DURATION_REDUCED = 0.8;

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLayoutEffect, useRef } from 'react';
-import { HiOutlineCalendarDays, HiOutlineClock, HiOutlineMapPin } from 'react-icons/hi2';
+import { HiOutlineCalendarDays, HiOutlineClock, HiOutlineMapPin, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineXMark } from 'react-icons/hi2';
 
 import { GoldParticles } from './GoldParticles';
 import { RosePetals, type PetalColour } from './RosePetals';
@@ -28,6 +28,12 @@ export interface CeremonyStageProps {
   theme: CeremonyTheme | null;
   /** 1-based position, for the "Ceremony 02" eyebrow. */
   ordinal: number | null;
+  /** Called when the back button is clicked. */
+  onBack?: () => void;
+  /** Called when the next button is clicked. */
+  onNext?: () => void;
+  /** Called when the previous button is clicked. */
+  onPrev?: () => void;
 }
 
 /**
@@ -60,7 +66,7 @@ const FRAME_INSET = 'clamp(0.75rem,2.5vw,2.25rem)';
  * One GSAP timeline re-runs on every change of ceremony, so the ground, the
  * title and the foil arrive in sequence rather than all at once.
  */
-export function CeremonyStage({ event, theme, ordinal }: CeremonyStageProps) {
+export function CeremonyStage({ event, theme, ordinal, onBack, onNext, onPrev }: CeremonyStageProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
   const eventId = event?.id ?? null;
@@ -288,38 +294,72 @@ export function CeremonyStage({ event, theme, ordinal }: CeremonyStageProps) {
                 place.
               </p>
             ) : (
-              <ScratchReveal
-                key={event.id}
-                className="rounded-[var(--radius-tile)] border border-gold/50 shadow-[0_28px_60px_-28px_rgba(47,37,33,0.55)]"
-                hint="Scratch to reveal"
-                foilTint={theme?.foil}
-              >
-                <div className="relative bg-[#FDF9F2]/94 px-[clamp(1.25rem,4vw,3rem)] py-[clamp(2rem,4vw,3rem)]">
-                  <dl className="grid gap-6 sm:grid-cols-2">
-                    {DETAIL_ROWS.map((row) => {
-                      const RowIcon = row.icon;
-                      const sub = 'sub' in row ? row.sub(event) : undefined;
+              <>
+                <ScratchReveal
+                  key={event.id}
+                  className="rounded-[var(--radius-tile)] border border-gold/50 shadow-[0_28px_60px_-28px_rgba(47,37,33,0.55)]"
+                  hint="Scratch to reveal"
+                  foilTint={theme?.foil}
+                >
+                  <div className="relative bg-[#FDF9F2]/94 px-[clamp(1.25rem,4vw,3rem)] py-[clamp(2rem,4vw,3rem)]">
+                    <dl className="grid gap-6 sm:grid-cols-2">
+                      {DETAIL_ROWS.map((row) => {
+                        const RowIcon = row.icon;
+                        const sub = 'sub' in row ? row.sub(event) : undefined;
 
-                      return (
-                        <div key={row.label} className="flex items-start gap-3.5">
-                          <RowIcon aria-hidden className="mt-1 shrink-0 text-base text-gold-deep" />
-                          <div className="min-w-0">
-                            <dt className="font-sans text-[0.5rem] uppercase tracking-[0.32em] text-muted">
-                              {row.label}
-                            </dt>
-                            <dd className="mt-1 font-serif text-[length:var(--text-lead)] font-light leading-snug text-ink">
-                              {row.get(event)}
-                              {sub && (
-                                <span className="mt-0.5 block font-sans text-xs text-muted">{sub}</span>
-                              )}
-                            </dd>
+                        return (
+                          <div key={row.label} className="flex items-start gap-3.5">
+                            <RowIcon aria-hidden className="mt-1 shrink-0 text-base text-gold-deep" />
+                            <div className="min-w-0">
+                              <dt className="font-sans text-[0.5rem] uppercase tracking-[0.32em] text-muted">
+                                {row.label}
+                              </dt>
+                              <dd className="mt-1 font-serif text-[length:var(--text-lead)] font-light leading-snug text-ink">
+                                {row.get(event)}
+                                {sub && (
+                                  <span className="mt-0.5 block font-sans text-xs text-muted">{sub}</span>
+                                )}
+                              </dd>
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </dl>
+                        );
+                      })}
+                    </dl>
+                  </div>
+                </ScratchReveal>
+
+                {/* Navigation bar */}
+                <div className="mt-8 flex items-center justify-between gap-4">
+                  <button
+                    type="button"
+                    onClick={onBack}
+                    aria-label="Go back to events"
+                    className="group flex items-center gap-2 rounded-full border border-gold/50 bg-white/50 px-4 py-2 transition-all duration-500 hover:border-gold hover:bg-white hover:text-gold-deep"
+                  >
+                    <HiOutlineXMark className="text-lg" />
+                    <span className="font-sans text-sm font-medium uppercase tracking-[0.12em]">Back</span>
+                  </button>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={onPrev}
+                      aria-label="Previous event"
+                      className="group rounded-full border border-gold/50 bg-white/50 p-2 transition-all duration-500 hover:border-gold hover:bg-white hover:text-gold-deep"
+                    >
+                      <HiOutlineChevronLeft className="text-xl" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={onNext}
+                      aria-label="Next event"
+                      className="group rounded-full border border-gold/50 bg-white/50 p-2 transition-all duration-500 hover:border-gold hover:bg-white hover:text-gold-deep"
+                    >
+                      <HiOutlineChevronRight className="text-xl" />
+                    </button>
+                  </div>
                 </div>
-              </ScratchReveal>
+              </>
             )}
           </div>
         </div>

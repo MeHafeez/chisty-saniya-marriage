@@ -123,6 +123,17 @@ export function Events() {
         event={selected}
         theme={selected ? themeFor(selected) : null}
         ordinal={selected ? EVENTS.indexOf(selected) + 1 : null}
+        onBack={() => setSelectedId(null)}
+        onNext={() => {
+          const currentIndex = EVENTS.findIndex((e) => e.id === selectedId);
+          const nextIndex = (currentIndex + 1) % EVENTS.length;
+          choose(EVENTS[nextIndex].id);
+        }}
+        onPrev={() => {
+          const currentIndex = EVENTS.findIndex((e) => e.id === selectedId);
+          const prevIndex = (currentIndex - 1 + EVENTS.length) % EVENTS.length;
+          choose(EVENTS[prevIndex].id);
+        }}
       />
     </Section>
   );

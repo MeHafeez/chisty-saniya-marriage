@@ -38,15 +38,17 @@ interface Petal {
 }
 
 /**
- * Ivory rose petals matching the banner's roses — warm whites, creams and the
- * faintest blush, not pink. Each pair is [face, shadowed edge].
+ * Rose petals in warm, vibrant tones — roses, creams, and golds.
+ * Each pair is [face, shadowed edge].
  */
 const PETAL_COLOURS: readonly PetalColour[] = [
-  ['#FDF6EA', '#E8D6BE'],
-  ['#F7EBD9', '#DFC8A9'],
-  ['#F4E3D3', '#DBBFA6'],
-  ['#EFD9CE', '#D2AE9C'],
-  ['#FBF2E2', '#E3CDAE'],
+  ['#FFB3D9', '#E8659F'],
+  ['#FFC9E3', '#E8909F'],
+  ['#FFE4F0', '#E8B3C9'],
+  ['#FFD4E5', '#E899B3'],
+  ['#FFC0DB', '#E87399'],
+  ['#F5A8C4', '#D97399'],
+  ['#FFDCE8', '#E8C0D9'],
 ];
 
 /**
@@ -89,7 +91,7 @@ export function RosePetals({
     const makePetal = (seed = false): Petal => ({
       x: randomBetween(-40, width + 40),
       y: seed ? randomBetween(-height * 0.3, height) : randomBetween(-140, -20),
-      size: randomBetween(9, 20),
+      size: randomBetween(10, 18),
       fall: randomBetween(22, 52) * speed,
       sway: randomBetween(14, 42),
       swayPhase: randomBetween(0, Math.PI * 2),
@@ -98,7 +100,7 @@ export function RosePetals({
       rotation: randomBetween(0, Math.PI * 2),
       flutter: randomBetween(0, Math.PI * 2),
       flutterRate: randomBetween(0.8, 1.9),
-      alpha: randomBetween(0.55, 0.95),
+      alpha: randomBetween(0.75, 1),
       colour: pick(palette) ?? palette[0]!,
     });
 

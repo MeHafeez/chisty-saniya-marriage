@@ -6,7 +6,7 @@ export interface Person {
   /** Everyday name, used for headings and the portal doors. */
   readonly name: string;
   readonly fullName: string;
-  /** House name — "the Chisty Family". Not derivable from `fullName`. */
+  /** House name — "the Chisty's Family". Not derivable from `fullName`. */
   readonly familyName: string;
   readonly initial: string;
   readonly role: string;
