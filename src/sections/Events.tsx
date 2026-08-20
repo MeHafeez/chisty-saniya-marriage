@@ -126,13 +126,17 @@ export function Events() {
         onBack={() => setSelectedId(null)}
         onNext={() => {
           const currentIndex = EVENTS.findIndex((e) => e.id === selectedId);
-          const nextIndex = (currentIndex + 1) % EVENTS.length;
-          choose(EVENTS[nextIndex].id);
+          if (currentIndex !== -1) {
+            const nextIndex = (currentIndex + 1) % EVENTS.length;
+            choose(EVENTS[nextIndex]!.id);
+          }
         }}
         onPrev={() => {
           const currentIndex = EVENTS.findIndex((e) => e.id === selectedId);
-          const prevIndex = (currentIndex - 1 + EVENTS.length) % EVENTS.length;
-          choose(EVENTS[prevIndex].id);
+          if (currentIndex !== -1) {
+            const prevIndex = (currentIndex - 1 + EVENTS.length) % EVENTS.length;
+            choose(EVENTS[prevIndex]!.id);
+          }
         }}
       />
     </Section>
