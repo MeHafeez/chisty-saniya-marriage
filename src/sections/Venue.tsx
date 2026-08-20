@@ -19,7 +19,6 @@ const item = {
 };
 
 function generateCalendarEvent() {
-  const event = EVENTS[EVENTS.length - 1]; // Valima
   const startTime = WEDDING.date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
   const endTime = new Date(WEDDING.date.getTime() + 4 * 60 * 60 * 1000).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 

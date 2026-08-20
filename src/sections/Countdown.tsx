@@ -1,19 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 import { CountdownNumerals } from '@/components/royal/CountdownNumerals';
 import { GoldParticles } from '@/components/royal/GoldParticles';
-import { ScratchReveal } from '@/components/royal/ScratchReveal';
-import { FloralAccent, OrnamentalLine, RoyalCorner } from '@/components/royal/RoyalOrnaments';
+import { OrnamentalLine, RoyalCorner } from '@/components/royal/RoyalOrnaments';
 import { GirihCorner } from '@/components/decor/islamic/GirihCorner';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { EVENTS, WEDDING } from '@/constants/wedding';
+import { WEDDING } from '@/constants/wedding';
 import { EASE } from '@/constants/motion';
 import { useCountdown } from '@/hooks/useCountdown';
-import { formatLongDate, splitDate } from '@/utils/format';
+import { formatLongDate } from '@/utils/format';
 
 /**
  * Section 06 — how long until the Valima.
@@ -24,8 +22,6 @@ import { formatLongDate, splitDate } from '@/utils/format';
  */
 export function Countdown() {
   const { timeLeft, isReady, hasPassed } = useCountdown(WEDDING.date);
-  const [dateRevealed, setDateRevealed] = useState(false);
-  const scratchDate = splitDate(WEDDING.date);
 
   const units = [
     { label: 'Days', value: timeLeft.days, digits: 3 },
@@ -33,8 +29,6 @@ export function Countdown() {
     { label: 'Minutes', value: timeLeft.minutes, digits: 2 },
     { label: 'Seconds', value: timeLeft.seconds, digits: 2 },
   ];
-
-  const valima = EVENTS[EVENTS.length - 1];
 
   return (
     <Section id="countdown" tone="night" label="Countdown to the wedding" className="overflow-hidden">
@@ -105,12 +99,6 @@ export function Countdown() {
         </p>
       </motion.div>
 
-      {/* Gold puff the moment the foil clears */}
-      {dateRevealed && (
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <GoldParticles count={26} intensity={1.3} opacity={0.95} />
-        </div>
-      )}
     </Section>
   );
 }

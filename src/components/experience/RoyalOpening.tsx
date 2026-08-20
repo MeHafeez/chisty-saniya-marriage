@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCallback, useLayoutEffect, useRef, useState } from 'react';
 
 import { GoldParticles, type GoldParticlesHandle } from '@/components/royal/GoldParticles';
@@ -145,10 +146,12 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
 
           {/* What stands beyond the doors */}
           <div ref={revealRef} className="absolute inset-0 overflow-hidden opacity-0">
-            <img
+            <Image
               src="/opening.png"
               alt="Opening"
-              className="h-full w-full object-cover object-center"
+              fill
+              className="object-cover object-center"
+              priority
             />
           </div>
 
