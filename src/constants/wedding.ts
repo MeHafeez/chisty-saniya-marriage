@@ -203,7 +203,7 @@ export const EVENTS: readonly WeddingEvent[] = [
     icon: GiLotus,
     accent: '#C6A66A',
     dressCode: 'Festive formal',
-    image: '/images/events/valima-1054.webp',
+    image: 'valima.png',
   },
 ];
 
