@@ -4,10 +4,9 @@
  *   node scripts/optimize-portraits.mjs
  *
  * These are transparent cut-outs, so alpha has to survive — WebP keeps it and
- * still lands roughly a tenth of the PNG's weight. A PNG fallback is emitted
- * for the rare browser without WebP.
+ * still lands roughly a tenth of the PNG's weight.
  *
- * Re-run after replacing either groom.png or bride.png.
+ * Re-run after replacing either groom.png or bride.png in assets-src/.
  */
 
 import { mkdir, stat, writeFile } from 'node:fs/promises';
@@ -17,6 +16,8 @@ import sharp from 'sharp';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(ROOT, 'public');
+// Build inputs live outside public/ so they are never served or deployed.
+const SOURCE = join(ROOT, 'assets-src');
 const OUT = join(PUBLIC, 'images', 'portraits');
 
 const SOURCES = [
@@ -24,13 +25,17 @@ const SOURCES = [
   { file: 'bride.png', name: 'bride' },
 ];
 
-const WIDTHS = [480, 720, 1000];
+// One rendition each. These are consumed through next/image, which builds its
+// own responsive set from the source at request time and never asks for a
+// sibling file — so the narrower variants and the fallback this used to emit
+// were shipped to the CDN and downloaded by nobody.
+const WIDTH = 1000;
 const kb = (bytes) => `${(bytes / 1024).toFixed(0)} KB`;
 
 await mkdir(OUT, { recursive: true });
 
 for (const source of SOURCES) {
-  const input = join(PUBLIC, source.file);
+  const input = join(SOURCE, source.file);
 
   try {
     await stat(input);
@@ -45,26 +50,14 @@ for (const source of SOURCES) {
     `\n${source.file}  ${meta.width}x${meta.height}  ${kb(original.size)}  alpha=${meta.hasAlpha}`,
   );
 
-  for (const width of WIDTHS) {
-    if (meta.width && width > meta.width) continue;
-
-    const webp = await sharp(input)
-      .resize({ width, withoutEnlargement: true })
-      // `alphaQuality` keeps the cut-out edge clean; a soft edge shows badly
-      // against the warm backdrop these sit on.
-      .webp({ quality: 86, alphaQuality: 92, effort: 5 })
-      .toBuffer();
-
-    await writeFile(join(OUT, `${source.name}-${width}.webp`), webp);
-    console.log(`  ✓ images/portraits/${source.name}-${width}.webp  ${kb(webp.length)}`);
-  }
-
-  const png = await sharp(input)
-    .resize({ width: WIDTHS[WIDTHS.length - 1], withoutEnlargement: true })
-    .png({ compressionLevel: 9, palette: true })
+  const webp = await sharp(input)
+    .resize({ width: WIDTH, withoutEnlargement: true })
+    // `alphaQuality` keeps the cut-out edge clean; a soft edge shows badly
+    // against the warm backdrop these sit on.
+    .webp({ quality: 86, alphaQuality: 92, effort: 5 })
     .toBuffer();
-  await writeFile(join(OUT, `${source.name}-fallback.png`), png);
-  console.log(`  ✓ images/portraits/${source.name}-fallback.png  ${kb(png.length)}`);
+  await writeFile(join(OUT, `${source.name}-${WIDTH}.webp`), webp);
+  console.log(`  ✓ images/portraits/${source.name}-${WIDTH}.webp  ${kb(webp.length)}`);
 }
 
 console.log('\nDone.');

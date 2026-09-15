@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useCallback, useLayoutEffect, useRef, useState } from 'react';
 
 import { GoldParticles, type GoldParticlesHandle } from '@/components/royal/GoldParticles';
@@ -25,8 +24,9 @@ interface RoyalOpeningProps {
  *
  * Fullscreen, no page chrome: an atmospheric royal ground, an ornamental frame
  * carrying the couple's names, and two hinged leaves that swing outward on a
- * single GSAP master timeline (see `animations/introTimeline.ts`) to reveal a
- * lit courtyard beyond.
+ * single GSAP master timeline (see `animations/introTimeline.ts`) onto the warm
+ * light behind them. Nothing is pictured through the doorway — the light alone
+ * carries it, and the camera is already travelling through by then.
  *
  * All names, dates and places come from `constants/wedding.ts` — nothing here
  * is authored copy.
@@ -44,7 +44,6 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
   const sealRef = useRef<HTMLDivElement>(null);
   const leftDoorRef = useRef<HTMLDivElement>(null);
   const rightDoorRef = useRef<HTMLDivElement>(null);
-  const revealRef = useRef<HTMLDivElement>(null);
   const flashRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<GoldParticlesHandle>(null);
   const timelineRef = useRef<ReturnType<typeof buildIntroTimeline> | null>(null);
@@ -60,7 +59,6 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
         seal: sealRef.current,
         leftDoor: leftDoorRef.current,
         rightDoor: rightDoorRef.current,
-        reveal: revealRef.current,
         flash: flashRef.current,
         particles: particlesRef.current,
       },
@@ -144,17 +142,6 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
             }}
           />
 
-          {/* What stands beyond the doors */}
-          <div ref={revealRef} className="absolute inset-0 overflow-hidden opacity-0">
-            <Image
-              src="/opening.png"
-              alt="Opening"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-          </div>
-
           {/* The two leaves. No labels on them: the cover panel in front already
               carries the names, and centring it over both leaves put two sets of
               type on top of each other. */}
@@ -186,13 +173,6 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
             </p>
 
             <FloralAccent variant="swag" size={44} className="mt-3 text-[#D9B871] opacity-80" />
-
-            {/* <p
-              className="mt-4 font-sans uppercase text-[#D9B871]"
-              style={{ fontSize: 'clamp(0.5rem, 1.9vw, 0.625rem)', letterSpacing: '0.42em' }}
-            >
-              {WEDDING.occasion}
-            </p> */}
 
             {/* ——— The heart seal: both the ornament and the trigger ———
                 With the button gone this is the only affordance, so it carries
@@ -229,19 +209,6 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
             </p>
 
             <OrnamentalLine width={210} className="mt-4 text-[#C9A45C]" />
-
-            {/* <p
-              className="mt-3 font-serif font-light text-[#EBD9B4]"
-              style={{ fontSize: 'clamp(0.8rem, 3vw, 1.05rem)', letterSpacing: '0.16em' }}
-            >
-              {date.day} · {date.month} · {date.year}
-            </p>
-            <p
-              className="mt-1.5 font-sans uppercase text-[#C9A45C]/80"
-              style={{ fontSize: 'clamp(0.44rem, 1.7vw, 0.5625rem)', letterSpacing: '0.34em' }}
-            >
-              {date.weekday} · {WEDDING.city}
-            </p> */}
           </div>
         </button>
 

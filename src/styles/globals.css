@@ -256,18 +256,6 @@
     animation: foil-shift 9s var(--ease-luxe) infinite;
   }
 
-  .glass-card {
-    background: linear-gradient(
-      145deg,
-      color-mix(in oklab, var(--color-ivory) 82%, transparent),
-      color-mix(in oklab, var(--color-champagne) 62%, transparent)
-    );
-    backdrop-filter: blur(18px) saturate(1.25);
-    -webkit-backdrop-filter: blur(18px) saturate(1.25);
-    border: 1px solid color-mix(in oklab, var(--color-gold) 22%, transparent);
-    box-shadow: var(--shadow-float);
-  }
-
   .hairline {
     height: 1px;
     background: linear-gradient(
@@ -284,33 +272,14 @@
    UTILITIES
    ========================================================================== */
 @layer utilities {
-  .mask-fade-y {
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-  }
-
-  .mask-fade-x {
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-  }
-
   .will-animate {
     will-change: transform, opacity, filter;
-  }
-
-  .gpu {
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
   }
 
   /* Split-text primitives — a clipping line with a translating child. */
   .split-line {
     display: block;
     overflow: hidden;
-  }
-
-  .balance {
-    text-wrap: balance;
   }
 }
 

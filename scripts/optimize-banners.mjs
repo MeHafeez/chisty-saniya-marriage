@@ -8,7 +8,7 @@
  * need `<picture>` art direction rather than the Next image optimiser, so the
  * work has to happen ahead of time.
  *
- * Re-run this after replacing either banner-*.png.
+ * Re-run this after replacing either banner-*.png in assets-src/.
  */
 
 import { mkdir, stat, writeFile } from 'node:fs/promises';
@@ -18,6 +18,8 @@ import sharp from 'sharp';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(ROOT, 'public');
+// Build inputs live outside public/ so they are never served or deployed.
+const SOURCE = join(ROOT, 'assets-src');
 const OUT = join(PUBLIC, 'images', 'banner');
 
 const SOURCES = [
@@ -30,7 +32,7 @@ const kb = (bytes) => `${(bytes / 1024).toFixed(0)} KB`;
 await mkdir(OUT, { recursive: true });
 
 for (const source of SOURCES) {
-  const input = join(PUBLIC, source.file);
+  const input = join(SOURCE, source.file);
 
   try {
     await stat(input);

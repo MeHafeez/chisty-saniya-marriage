@@ -6,7 +6,7 @@ import { useCallback, useState } from 'react';
 import { HiOutlineArrowLongDown, HiOutlineCursorArrowRays } from 'react-icons/hi2';
 
 import { CeremonyStage, type CeremonyTheme } from '@/components/royal/CeremonyStage';
-import { RoyalCorner } from '@/components/royal/RoyalOrnaments';
+import { FloralAccent, RoyalCorner } from '@/components/royal/RoyalOrnaments';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { EVENTS } from '@/constants/wedding';
@@ -154,8 +154,6 @@ function CeremonyCard({
   isSelected: boolean;
   onSelect: () => void;
 }) {
-  const Icon = event.icon;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 54, filter: 'blur(12px)' }}
@@ -193,9 +191,18 @@ function CeremonyCard({
               className="absolute inset-0 flex items-center justify-center"
               style={{ background: `linear-gradient(150deg, #FBF4EA 0%, ${event.accent}55 50%, #EFE2CE 100%)` }}
             >
-              <Icon aria-hidden className="text-6xl" style={{ color: event.accent }} />
+              <FloralAccent variant="rosette" size={72} tone={event.accent} />
             </div>
           )}
+
+          {/* Grounds the prompt below without dulling the couple above it */}
+          <div
+            aria-hidden
+            className={cn(
+              'pointer-events-none absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-ink/65 via-ink/20 to-transparent transition-opacity duration-700',
+              isSelected ? 'opacity-100' : 'opacity-90 group-hover:opacity-100',
+            )}
+          />
 
           <div aria-hidden className="pointer-events-none absolute inset-2.5 border border-gold/35" />
           <RoyalCorner corner="top-left" size={64} opacity={0.65} className="left-1 top-1" />
@@ -212,6 +219,29 @@ function CeremonyCard({
             )}
             style={{ background: `radial-gradient(70% 50% at 50% 100%, ${event.accent}55, transparent 70%)` }}
           />
+
+          {/* ——— The invitation to tap ———
+              The artwork no longer carries the date, time or venue — the panel
+              below reveals those — so the card has to say out loud that it is
+              something to press. Sitting on the image rather than beside the
+              caption, because the image is what the guest is looking at and
+              what they have to tap. Duplicates the button's own aria-label,
+              hence hidden from screen readers. */}
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-[7%]">
+            <span
+              className={cn(
+                'flex items-center gap-2 rounded-full border px-4 py-2 transition-all duration-700 ease-[var(--ease-luxe)]',
+                isSelected
+                  ? 'border-gold bg-ink/85 text-gold-soft'
+                  : 'border-gold/70 bg-ink/70 text-champagne group-hover:border-gold group-hover:bg-ink/85',
+              )}
+            >
+              <HiOutlineCursorArrowRays className="text-sm" />
+              <span className="font-sans text-[0.625rem] uppercase tracking-[0.28em]">
+                {isSelected ? 'Showing below' : 'Tap to reveal'}
+              </span>
+            </span>
+          </div>
         </div>
 
         <div className="mt-5 flex items-center justify-center gap-3">

@@ -19,8 +19,6 @@ export interface IntroTargets {
   seal: HTMLElement | null;
   leftDoor: HTMLElement | null;
   rightDoor: HTMLElement | null;
-  /** Content revealed in the doorway once the leaves part. */
-  reveal: HTMLElement | null;
   /** Full-screen warm flash used for the hand-off. */
   flash: HTMLElement | null;
   particles: GoldParticlesHandle | null;
@@ -40,7 +38,7 @@ export interface IntroOptions {
  * be scrubbed, paused, reversed or killed as a unit, and the beats stay in a
  * fixed relationship no matter how the browser schedules frames.
  *
- * Choreography — press → light → doors → gold → reveal → flash → wedding.
+ * Choreography — press → light → doors → gold → flash → wedding.
  */
 export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions = {}) {
   const gsap = registerGsap();
@@ -56,7 +54,6 @@ export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions 
     // Everything still resolves to the same end state, just without the travel.
     timeline
       .to([targets.cover, targets.leftDoor, targets.rightDoor], { autoAlpha: 0, duration: 0.35 })
-      .to(targets.reveal, { autoAlpha: 1, duration: 0.35 }, '<')
       .to(targets.root, { autoAlpha: 0, duration: 0.3 }, '+=0.1');
     return timeline;
   }
@@ -102,14 +99,6 @@ export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions 
     .to(targets.light, { opacity: 1, scale: 1.5, duration: 1.6, ease: 'power2.out' }, 2.0)
     .call(() => targets.particles?.setIntensity(1.6), undefined, 2.2)
     .call(() => targets.particles?.burst(0.5, 0.5, 34), undefined, 2.4)
-
-    /* 2.8 — what stands beyond becomes visible */
-    .fromTo(
-      targets.reveal,
-      { autoAlpha: 0, scale: 0.94, filter: 'blur(14px)' },
-      { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 1.8, ease: 'power2.out' },
-      2.8,
-    )
 
     /* 3.4 — the camera travels through the arch */
     .to(targets.root, { scale: 1.9, duration: 2, ease: 'power2.in' }, 3.3)

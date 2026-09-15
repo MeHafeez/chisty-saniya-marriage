@@ -1,11 +1,15 @@
-import type { IconType } from 'react-icons';
-
 /** A person featured on the invitation (couple or family). */
 export interface Person {
   readonly id: string;
   /** Everyday name, used for headings and the portal doors. */
   readonly name: string;
   readonly fullName: string;
+  /**
+   * The quiet opening of `fullName`, set small above the part set large in the
+   * hero lockup: "Shaik Khaja" over "Mohiddin Chisty". Not derivable — where a
+   * name breaks is a matter of how it is said, not of where its spaces fall.
+   */
+  readonly nameLead: string;
   /** House name — "the Chisty's Family". Not derivable from `fullName`. */
   readonly familyName: string;
   readonly initial: string;
@@ -47,7 +51,6 @@ export interface WeddingEvent {
   readonly time: string;
   readonly venue: string;
   readonly address: string;
-  readonly icon: IconType;
   readonly accent: string;
   readonly dressCode: string;
   /** Ceremony card artwork. Optional so an event without one still renders. */

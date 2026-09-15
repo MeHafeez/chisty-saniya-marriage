@@ -1,5 +1,3 @@
-import { GiLotus, GiPeaceDove, GiThreeLeaves } from 'react-icons/gi';
-
 import type {
   Blessing,
   FamilyMember,
@@ -31,6 +29,7 @@ export const COUPLE = {
     id: 'groom',
     name: 'Chisty',
     fullName: 'Shaik Khaja Mohiddin Chisty',
+    nameLead: 'Shaik Khaja',
     familyName: 'Chisty',
     initial: 'C',
     role: 'The Groom',
@@ -46,6 +45,7 @@ export const COUPLE = {
     id: 'bride',
     name: 'Saniya',
     fullName: 'Syed Saniya',
+    nameLead: 'Syed',
     familyName: 'Syed',
     initial: 'S',
     role: 'The Bride',
@@ -168,7 +168,6 @@ export const EVENTS: readonly WeddingEvent[] = [
     time: 'Dinner 8:00 p.m. · Haldi 10:00 p.m.',
     venue: "Groom's Place",
     address: 'Guntur, Andhra Pradesh',
-    icon: GiThreeLeaves,
     accent: '#E8C87E',
     dressCode: 'Marigold & white',
     image: '/images/events/haldi-1054.webp',
@@ -184,7 +183,6 @@ export const EVENTS: readonly WeddingEvent[] = [
     time: 'Nikah 11:30 a.m. · Lunch 12:30 p.m.',
     venue: 'Manjunadha Convention',
     address: 'Yerragondapalem, Andhra Pradesh',
-    icon: GiPeaceDove,
     accent: '#B99551',
     dressCode: 'Ivory & gold — formal',
     image: '/images/events/nikah-1054.webp',
@@ -200,10 +198,9 @@ export const EVENTS: readonly WeddingEvent[] = [
     time: 'Dinner 8:00 p.m.',
     venue: 'B. Convention Centre',
     address: 'Near Andhra Muslim College, Guntur',
-    icon: GiLotus,
     accent: '#C6A66A',
     dressCode: 'Festive formal',
-    image: 'valima.png',
+    image: '/images/events/valima-1054.webp',
   },
 ];
 

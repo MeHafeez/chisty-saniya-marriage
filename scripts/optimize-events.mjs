@@ -3,7 +3,7 @@
  *
  *   node scripts/optimize-events.mjs
  *
- * Re-run after replacing any of haldi.png / nikha.png / valima.png.
+ * Re-run after replacing any of haldi.png / nikha.png / valima.png in assets-src/.
  */
 
 import { mkdir, stat, writeFile } from 'node:fs/promises';
@@ -13,6 +13,8 @@ import sharp from 'sharp';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(ROOT, 'public');
+// Build inputs live outside public/ so they are never served or deployed.
+const SOURCE = join(ROOT, 'assets-src');
 const OUT = join(PUBLIC, 'images', 'events');
 
 // `nikha.png` is the filename as supplied; the ceremony itself is the Nikah.
@@ -22,13 +24,17 @@ const SOURCES = [
   { file: 'valima.png', name: 'valima' },
 ];
 
-const WIDTHS = [540, 800, 1054];
+// One rendition each. These are consumed through next/image, which builds its
+// own responsive set from the source at request time and never asks for a
+// sibling file — so the narrower variants and the fallback this used to emit
+// were shipped to the CDN and downloaded by nobody.
+const WIDTH = 1054;
 const kb = (bytes) => `${(bytes / 1024).toFixed(0)} KB`;
 
 await mkdir(OUT, { recursive: true });
 
 for (const source of SOURCES) {
-  const input = join(PUBLIC, source.file);
+  const input = join(SOURCE, source.file);
   try {
     await stat(input);
   } catch {
@@ -40,22 +46,12 @@ for (const source of SOURCES) {
   const meta = await sharp(input).metadata();
   console.log(`\n${source.file}  ${meta.width}x${meta.height}  ${kb(original.size)}`);
 
-  for (const width of WIDTHS) {
-    if (meta.width && width > meta.width) continue;
-    const webp = await sharp(input)
-      .resize({ width, withoutEnlargement: true })
-      .webp({ quality: 84, effort: 5 })
-      .toBuffer();
-    await writeFile(join(OUT, `${source.name}-${width}.webp`), webp);
-    console.log(`  ✓ images/events/${source.name}-${width}.webp  ${kb(webp.length)}`);
-  }
-
-  const jpeg = await sharp(input)
-    .resize({ width: WIDTHS[WIDTHS.length - 1], withoutEnlargement: true })
-    .jpeg({ quality: 84, mozjpeg: true })
+  const webp = await sharp(input)
+    .resize({ width: WIDTH, withoutEnlargement: true })
+    .webp({ quality: 84, effort: 5 })
     .toBuffer();
-  await writeFile(join(OUT, `${source.name}-fallback.jpg`), jpeg);
-  console.log(`  ✓ images/events/${source.name}-fallback.jpg  ${kb(jpeg.length)}`);
+  await writeFile(join(OUT, `${source.name}-${WIDTH}.webp`), webp);
+  console.log(`  ✓ images/events/${source.name}-${WIDTH}.webp  ${kb(webp.length)}`);
 }
 
 console.log('\nDone.');

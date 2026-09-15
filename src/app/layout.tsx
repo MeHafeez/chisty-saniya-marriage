@@ -9,17 +9,29 @@ import '@/styles/globals.css';
 
 /* — Typefaces —————————————————————————————————————— */
 
+/**
+ * Only the weights actually asked for. next/font preloads every file it is
+ * given, and on a phone those preloads compete with the banner for the first
+ * few hundred milliseconds — so an unused weight is not merely dead bytes.
+ *
+ * 300 and 400 are what the page uses: `font-light` and the default. Nothing
+ * sets `font-semibold` anywhere, and the only `font-medium` is on Inter, which
+ * is variable and covers it in the one file.
+ */
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400'],
   style: ['normal', 'italic'],
   variable: '--font-cormorant',
   display: 'swap',
 });
 
+// Playfair Display starts at 400 — it has no 300 — so the `font-light` on the
+// elements set in it already resolves to 400. Asking for one weight changes
+// nothing on screen and drops four files.
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['400'],
   style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',

@@ -226,23 +226,8 @@ function makeFavicon() {
 /* — Manifest ————————————————————————————————————————— */
 
 const FILES = [
-  {
-    path: 'images/portraits/bride.svg',
-    svg: makePlaceholder({ width: 900, height: 1200, index: 0, monogram: CARD.bride.initial, caption: 'The Bride' }),
-  },
-  {
-    path: 'images/portraits/groom.svg',
-    svg: makePlaceholder({ width: 900, height: 1200, index: 2, monogram: CARD.groom.initial, caption: 'The Groom' }),
-  },
-  {
-    path: 'images/portraits/couple-arch.svg',
-    svg: makePlaceholder({
-      width: 800,
-      height: 1120,
-      index: 4,
-      caption: `${CARD.groom.name} & ${CARD.bride.name}`,
-    }),
-  },
+  // The portrait placeholders these used to emit are gone: real cut-outs
+  // replaced them, and the SVGs stayed on disk unreferenced.
   ...['The Haldi', 'The Nikah', 'The Valima'].map((caption, index) => ({
     path: `images/story/chapter-0${index + 1}.svg`,
     svg: makePlaceholder({
