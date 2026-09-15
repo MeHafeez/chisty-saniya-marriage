@@ -55,12 +55,13 @@ export function ExperienceShell({ children }: { children: ReactNode }) {
         // Kept out of the tab order and the a11y tree until the guest opens it.
         aria-hidden={!isRevealed}
         className={isRevealed ? undefined : 'pointer-events-none select-none'}
-        initial={{ opacity: 0, scale: 1.03, filter: 'blur(14px)' }}
-        animate={
-          isRevealed
-            ? { opacity: 1, scale: 1, filter: 'blur(0px)' }
-            : { opacity: 0, scale: 1.03, filter: 'blur(14px)' }
-        }
+        // Opacity and scale only. This blurred as it arrived, which meant a
+        // filter over the entire page — every section of it — held through the
+        // whole opening and then animated for two seconds more on the hand-off.
+        // On a phone that is the most expensive thing on screen, and the flash
+        // covers the join anyway, so almost none of it was ever visible.
+        initial={{ opacity: 0, scale: 1.03 }}
+        animate={isRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 }}
         transition={{ duration: 2.2, ease: EASE.luxe, delay: isRevealed ? 0.35 : 0 }}
       >
         {children}

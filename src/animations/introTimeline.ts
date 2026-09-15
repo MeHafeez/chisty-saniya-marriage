@@ -67,8 +67,12 @@ export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions 
     .call(() => targets.particles?.setIntensity(1.35), undefined, 0.3)
     .call(() => targets.particles?.burst(0.5, 0.46, 22), undefined, 0.4)
 
-    /* 0.5 — the cover furniture withdraws so the doors can be read */
-    .to(targets.cover, { autoAlpha: 0, y: -26, filter: 'blur(8px)', duration: 1.1 }, 0.5)
+    /* 0.5 — the cover furniture withdraws so the doors can be read.
+       It used to blur as it went. That put a second animating blur on screen
+       through the same window as the light behind the leaves, and the two
+       together are what a phone could not keep up with. Lifting and fading
+       reads as a withdrawal on its own. */
+    .to(targets.cover, { autoAlpha: 0, y: -26, duration: 1.1 }, 0.5)
     .to(targets.seal, { scale: 0.72, autoAlpha: 0, duration: 0.9, ease: 'power2.in' }, 0.6)
 
     /* 0.6 — light kindles behind the leaves */

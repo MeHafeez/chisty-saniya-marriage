@@ -114,7 +114,7 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
       <div
         ref={stageRef}
         className="absolute inset-0 flex flex-col items-center justify-center px-5 py-6"
-        style={{ perspective: '1600px', transformOrigin: '50% 48%' }}
+        style={{ perspective: '1600px', transformOrigin: '50% 48%', willChange: 'transform' }}
       >
         {/* The doorway itself — and the trigger. There is no separate button:
             the guest opens the invitation by pressing the seal in the middle. */}
@@ -130,15 +130,22 @@ export function RoyalOpening({ onBegin, onOpen }: RoyalOpeningProps) {
             transformStyle: 'preserve-3d',
           }}
         >
-          {/* Warm light BEHIND the leaves */}
+          {/* Warm light BEHIND the leaves.
+              The softness is all in the gradient's stops. It used to come from
+              a `filter: blur(18px)`, but this element is scaled for most of the
+              opening while the stage scales again on top of it, and a blurred
+              layer has to be recomputed at every step of that — which is what
+              made the doors stutter on a phone. Extra colour stops give the same
+              falloff for nothing, and the transparent stop means there is no
+              rectangular edge for the blur to have been hiding. */}
           <div
             ref={lightRef}
             aria-hidden
             className="absolute inset-0 opacity-0"
             style={{
               background:
-                'radial-gradient(circle at 50% 55%, #FFF0CE 0%, #F4C978 26%, rgba(198,138,58,0.5) 52%, rgba(120,70,25,0) 78%)',
-              filter: 'blur(18px)',
+                'radial-gradient(circle at 50% 55%, #FFF0CE 0%, #FDE7B4 14%, #F4C978 30%, rgba(214,160,86,0.72) 44%, rgba(198,138,58,0.45) 58%, rgba(160,104,44,0.2) 70%, rgba(120,70,25,0) 82%)',
+              willChange: 'transform, opacity',
             }}
           />
 

@@ -96,11 +96,20 @@ export function Welcome() {
           { autoAlpha: 1, y: 0, duration: 0.7 },
           '-=0.5',
         )
-        // The signature wipes on left-to-right, like it is being written.
+        // The signature wipes on left-to-right, like it is being written. Only
+        // the right edge wipes: every other side is held outside the box. The
+        // script face throws loops well above the line and swashes well left of
+        // it, and an inset of 0 shears them off at a fixed height — which takes
+        // the C of "Chinna" as surely as the M it starts with. The right begins
+        // past 100% so that overhang is not showing before the wipe reaches it,
+        // and the clip is dropped once the tween lands.
         .fromTo(
           '[data-welcome="signature"]',
-          { autoAlpha: 0, clipPath: 'inset(0 100% 0 0)' },
-          { autoAlpha: 1, clipPath: 'inset(0 0% 0 0)', duration: 1.35, ease: 'power2.inOut' },
+          { autoAlpha: 0, clipPath: 'inset(-100% 120% -100% -20%)' },
+          {
+            autoAlpha: 1, clipPath: 'inset(-100% -8% -100% -20%)',
+            duration: 1.35, ease: 'power2.inOut', clearProps: 'clipPath',
+          },
           '-=0.25',
         )
         .fromTo(
