@@ -46,7 +46,11 @@ export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions 
 
   const timeline = gsap.timeline({
     paused: true,
-    defaults: { ease: 'power3.inOut' },
+    // Governs the vignette, the cover's withdrawal and the leaves fading out.
+    // Softened along with the leaves themselves: a cubic default left those
+    // moving briskly against doors that no longer do, and the mismatch read as
+    // hurry even where nothing had actually got faster.
+    defaults: { ease: 'power2.inOut' },
     onComplete,
   });
 
@@ -60,67 +64,57 @@ export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions 
 
   timeline
     /* 0.0 — the press registers: ground darkens, seal takes the light */
-    .to(targets.vignette, { opacity: 1, duration: 1.3 }, 0)
-    .to(targets.seal, { scale: 1.12, filter: 'brightness(1.9)', duration: 0.8, ease: 'power2.out' }, 0)
+    .to(targets.vignette, { opacity: 1, duration: 1.4 }, 0)
+    .to(targets.seal, { scale: 1.12, filter: 'brightness(1.9)', duration: 0.9, ease: 'power2.out' }, 0)
 
     /* 0.3 — gold begins to gather */
     .call(() => targets.particles?.setIntensity(1.35), undefined, 0.3)
-    .call(() => targets.particles?.burst(0.5, 0.46, 22), undefined, 0.4)
+    .call(() => targets.particles?.burst(0.5, 0.46, 22), undefined, 0.45)
 
     /* 0.5 — the cover furniture withdraws so the doors can be read.
        It used to blur as it went. That put a second animating blur on screen
        through the same window as the light behind the leaves, and the two
        together are what a phone could not keep up with. Lifting and fading
        reads as a withdrawal on its own. */
-    .to(targets.cover, { autoAlpha: 0, y: -26, duration: 1.1 }, 0.5)
-    .to(targets.seal, { scale: 0.72, autoAlpha: 0, duration: 0.9, ease: 'power2.in' }, 0.6)
+    .to(targets.cover, { autoAlpha: 0, y: -26, duration: 1.2 }, 0.5)
+    .to(targets.seal, { scale: 0.72, autoAlpha: 0, duration: 1, ease: 'power2.in' }, 0.7)
 
-    /* 0.6 — light kindles behind the leaves */
+    /* 0.7 — light kindles behind the leaves */
     .fromTo(
       targets.light,
       { opacity: 0, scale: 0.55 },
-      { opacity: 0.8, scale: 1, duration: 2.2, ease: 'power2.out' },
-      0.6,
+      { opacity: 0.8, scale: 1, duration: 2.8, ease: 'power2.out' },
+      0.7,
     )
 
-    /* 0.9 — the leaves break, then accelerate away on their outer hinges */
-    .fromTo(
-      targets.leftDoor,
-      { rotateY: 0 },
-      { rotateY: -78, duration: 3, ease: 'power3.inOut' },
-      0.9,
-    )
-    .fromTo(
-      targets.rightDoor,
-      { rotateY: 0 },
-      { rotateY: 78, duration: 3, ease: 'power3.inOut' },
-      0.9,
-    )
+    /* 0.9 — the leaves part, and keep parting.
+
+       The ease matters more here than the duration. A cubic in/out spends the
+       middle of its travel at roughly four times its own average speed, so the
+       leaves lunged through the halfway point however long the tween was given
+       — lengthening it only drew out the waiting at either end. A sine curve
+       peaks at about 1.6x instead: never hurrying, simply continuing. Together
+       with the longer swing, the fastest these ever move is now about a quarter
+       of what it was. */
+    .fromTo(targets.leftDoor, { rotateY: 0 }, { rotateY: -78, duration: 4.4, ease: 'sine.inOut' }, 0.9)
+    .fromTo(targets.rightDoor, { rotateY: 0 }, { rotateY: 78, duration: 4.4, ease: 'sine.inOut' }, 0.9)
     // A touch of push-back so the leaves recede rather than merely rotating.
-    .to([targets.leftDoor, targets.rightDoor], { z: -140, duration: 3, ease: 'power2.in' }, 0.9)
+    .to([targets.leftDoor, targets.rightDoor], { z: -140, duration: 4.4, ease: 'power1.in' }, 0.9)
 
-    /* 2.0 — the doorway floods */
-    .to(targets.light, { opacity: 1, scale: 1.5, duration: 1.6, ease: 'power2.out' }, 2.0)
-    .call(() => targets.particles?.setIntensity(1.6), undefined, 2.2)
-    .call(() => targets.particles?.burst(0.5, 0.5, 34), undefined, 2.4)
+    /* 2.8 — the doorway floods */
+    .to(targets.light, { opacity: 1, scale: 1.5, duration: 2.4, ease: 'power2.out' }, 2.8)
+    .call(() => targets.particles?.setIntensity(1.6), undefined, 3.2)
+    .call(() => targets.particles?.burst(0.5, 0.5, 34), undefined, 3.6)
 
-    /* 3.4 — the camera travels through the arch */
-    .to(targets.root, { scale: 1.9, duration: 2, ease: 'power2.in' }, 3.3)
-    .to([targets.leftDoor, targets.rightDoor], { autoAlpha: 0, duration: 1, }, 3.6)
+    /* 4.5 — the camera travels through the arch, as the leaves reach full swing */
+    .to(targets.root, { scale: 1.9, duration: 2.2, ease: 'power2.in' }, 4.5)
+    .to([targets.leftDoor, targets.rightDoor], { autoAlpha: 0, duration: 1.1 }, 5.0)
 
-    /* 3.9 — cinematic flash, then hand over */
-    .fromTo(
-      targets.flash,
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: 'power2.in' },
-      3.9,
-    )
-    .call(() => targets.particles?.setIntensity(0.5), undefined, 4.5)
-    .to(targets.root, { autoAlpha: 0, duration: 1, ease: 'power2.out' }, 4.7);
+    /* 5.5 — cinematic flash, then hand over */
+    .fromTo(targets.flash, { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'power2.in' }, 5.5)
+    .call(() => targets.particles?.setIntensity(0.5), undefined, 6.2)
+    .to(targets.root, { autoAlpha: 0, duration: 1, ease: 'power2.out' }, 6.5);
 
   return timeline;
 }
 
-/** Total run time in seconds, used to schedule the hand-off. */
-export const INTRO_DURATION = 5.9;
-export const INTRO_DURATION_REDUCED = 0.8;
