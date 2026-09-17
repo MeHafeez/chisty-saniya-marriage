@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
+import { useAmbient } from '@/hooks/useMotion';
 import { randomBetween } from '@/utils/math';
 import { cn } from '@/utils/cn';
 
@@ -102,15 +102,15 @@ function drawDust(ctx: CanvasRenderingContext2D, p: Particle) {
 export function ParticleCanvas({
   variant = 'both',
   className,
-  density = 46,
+  density: dust = 46,
   opacity = 1,
 }: ParticleCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const reducedMotion = usePrefersReducedMotion();
+  // Thinned and slowed when the guest asks for reduced motion, rather than
+  // removed. The policy lives in hooks/useMotion.
+  const { count: density } = useAmbient(dust);
 
   useEffect(() => {
-    if (reducedMotion) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d', { alpha: true });
     if (!canvas || !ctx) return;
@@ -200,9 +200,7 @@ export function ParticleCanvas({
       observer.disconnect();
       document.removeEventListener('visibilitychange', handleVisibility);
     };
-  }, [density, reducedMotion, variant]);
-
-  if (reducedMotion) return null;
+  }, [density, variant]);
 
   return (
     <canvas

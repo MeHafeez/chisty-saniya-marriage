@@ -25,7 +25,7 @@ export interface IntroTargets {
 }
 
 export interface IntroOptions {
-  /** Collapses the whole sequence to a short fade. */
+  /** Suppresses the swing and the camera push; see the branch below. */
   reducedMotion?: boolean;
   /** Fires when the invitation should take over (page unlocks, chrome fades in). */
   onComplete?: () => void;
@@ -55,10 +55,24 @@ export function buildIntroTimeline(targets: IntroTargets, options: IntroOptions 
   });
 
   if (reducedMotion) {
-    // Everything still resolves to the same end state, just without the travel.
+    // Calm, not cancelled.
+    //
+    // The leaves do not swing and the camera does not push: those are the
+    // large travel the preference is actually asking about, and they go. But
+    // the light still blooms behind the doors and the cover still gives way,
+    // slowly enough to read as an opening rather than a cut. Nothing here
+    // moves in space — every tween is opacity alone.
+    //
+    // This was a third of a second of everything vanishing at once, which is
+    // how a guest with the setting turned on came to open their invitation
+    // and find a blank rectangle.
     timeline
-      .to([targets.cover, targets.leftDoor, targets.rightDoor], { autoAlpha: 0, duration: 0.35 })
-      .to(targets.root, { autoAlpha: 0, duration: 0.3 }, '+=0.1');
+      .to(targets.seal, { autoAlpha: 0, duration: 0.6 }, 0)
+      .to(targets.cover, { autoAlpha: 0, duration: 1.1 }, 0.2)
+      .fromTo(targets.light, { opacity: 0 }, { opacity: 1, duration: 1.6 }, 0.2)
+      .to([targets.leftDoor, targets.rightDoor], { autoAlpha: 0, duration: 1.4 }, 0.5)
+      .fromTo(targets.flash, { opacity: 0 }, { opacity: 1, duration: 0.9 }, 1.5)
+      .to(targets.root, { autoAlpha: 0, duration: 0.8 }, 2.2);
     return timeline;
   }
 

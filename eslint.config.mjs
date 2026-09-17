@@ -16,6 +16,21 @@ const eslintConfig = [
   },
   {
     rules: {
+      // Decoration must never delete itself because the guest asked for less
+      // motion. `prefers-reduced-motion` is about large travel — swings, camera
+      // pushes, parallax — not about a still page. Five components answered it
+      // with `return null` and a guest with the setting on opened the
+      // invitation to a blank rectangle. Thin and slow instead: `useAmbient`
+      // in @/hooks/useMotion does it, and keeps the judgement in one place.
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector:
+            "IfStatement[test.name='reducedMotion'] ReturnStatement[argument.type='Literal'][argument.raw='null']",
+          message:
+            'Do not remove decoration under reduced motion — thin and slow it with useAmbient() from @/hooks/useMotion.',
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },

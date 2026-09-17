@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
+import { useAmbient } from '@/hooks/useMotion';
 import { randomBetween, pick } from '@/utils/math';
 import { cn } from '@/utils/cn';
 
@@ -57,21 +57,21 @@ const PETAL_COLOURS: readonly PetalColour[] = [
  * Each petal tumbles on two independent cycles: a horizontal sway and a
  * "flutter" that squashes it horizontally as it turns edge-on, which is what
  * stops falling petals reading as sliding stickers. Pure canvas, one rAF loop,
- * paused off-tab, and absent entirely under reduced motion.
+ * paused off-tab, and thinned and slowed under reduced motion.
  */
 export function RosePetals({
   className,
-  count = 30,
+  count: petals = 30,
   opacity = 1,
-  speed = 1,
+  speed: fall = 1,
   colours,
 }: RosePetalsProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const reducedMotion = usePrefersReducedMotion();
+  // Thinned and slowed when the guest asks for reduced motion, rather than
+  // removed. The policy lives in hooks/useMotion.
+  const { count, speed } = useAmbient(petals, fall);
 
   useEffect(() => {
-    if (reducedMotion) return;
-
     // Derived inside the effect so the only dependency is the prop itself.
     // Callers pass module-level palettes, so identity is stable per theme.
     const palette = colours && colours.length > 0 ? colours : PETAL_COLOURS;
@@ -207,9 +207,7 @@ export function RosePetals({
       observer.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
     };
-  }, [count, opacity, reducedMotion, speed, colours]);
-
-  if (reducedMotion) return null;
+  }, [count, opacity, speed, colours]);
 
   return (
     <canvas

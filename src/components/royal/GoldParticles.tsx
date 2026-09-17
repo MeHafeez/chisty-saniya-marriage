@@ -2,7 +2,7 @@
 
 import { useEffect, useImperativeHandle, useRef, type Ref } from 'react';
 
-import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
+import { useAmbient } from '@/hooks/useMotion';
 import { randomBetween } from '@/utils/math';
 import { cn } from '@/utils/cn';
 
@@ -56,14 +56,16 @@ const GOLD = [
 export function GoldParticles({
   ref,
   className,
-  count = 54,
+  count: motes = 54,
   intensity = 1,
   opacity = 1,
 }: GoldParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const intensityRef = useRef(intensity);
   const burstQueue = useRef<Array<{ x: number; y: number; count: number }>>([]);
-  const reducedMotion = usePrefersReducedMotion();
+  // Thinned and slowed when the guest asks for reduced motion, rather than
+  // removed. The policy lives in hooks/useMotion.
+  const { count } = useAmbient(motes);
 
   useImperativeHandle(
     ref,
@@ -79,8 +81,6 @@ export function GoldParticles({
   );
 
   useEffect(() => {
-    if (reducedMotion) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d', { alpha: true });
     if (!canvas || !ctx) return;
@@ -221,9 +221,7 @@ export function GoldParticles({
       observer.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
     };
-  }, [count, reducedMotion]);
-
-  if (reducedMotion) return null;
+  }, [count]);
 
   return (
     <canvas

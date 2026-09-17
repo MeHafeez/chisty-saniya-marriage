@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 
-import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
+import { useAmbient } from '@/hooks/useMotion';
 import { randomBetween } from '@/utils/math';
 import { cn } from '@/utils/cn';
 
@@ -16,8 +16,10 @@ interface FloatingHeartsProps {
  * Hearts drifting slowly upward behind the blessings.
  * Positions are generated once per mount and never re-randomised on re-render.
  */
-export function FloatingHearts({ count = 14, className }: FloatingHeartsProps) {
-  const reducedMotion = usePrefersReducedMotion();
+export function FloatingHearts({ count: total = 14, className }: FloatingHeartsProps) {
+  // Thinned and slowed when the guest asks for reduced motion, rather than
+  // removed. The policy lives in hooks/useMotion.
+  const { count } = useAmbient(total);
 
   const hearts = useMemo(
     () =>
@@ -32,8 +34,6 @@ export function FloatingHearts({ count = 14, className }: FloatingHeartsProps) {
       })),
     [count],
   );
-
-  if (reducedMotion) return null;
 
   return (
     <div aria-hidden className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)}>
